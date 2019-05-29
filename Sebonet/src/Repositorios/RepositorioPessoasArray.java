@@ -35,13 +35,13 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         }
     }
 
-    public void remover(String nome) throws PessoaNaoEncontradaException {
+    public void remover(String CPF) throws PessoaNaoEncontradaException {
         boolean status = true;
         int i = 0;
         while (status && i < 500) {
             if (this.pessoas[i] == null) {
                 throw new PessoaNaoEncontradaException();
-            } else if (this.pessoas[i].getNome().equals(nome)) {
+            } else if (this.pessoas[i].getCPF().equals(CPF)) {
                 if (this.pessoas[i + 1] == null) {
                     this.pessoas[i] = null;
                 } else {
@@ -62,14 +62,14 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         }
     }
 
-    public Pessoas procurar(String nome) throws PessoaNaoEncontradaException {
+    public Pessoas procurar(String CPF) throws PessoaNaoEncontradaException {
         boolean status = true;
         int i = 0;
         Pessoas aux = null;
         while (status && i < 500) {
             if (this.pessoas[i] == null) {
                 throw new PessoaNaoEncontradaException();
-            } else if (this.pessoas[i].getNome().equals(nome)) {
+            } else if (this.pessoas[i].getCPF().equals(CPF)) {
                 aux = this.pessoas[i];
                 status = false;
             } else {
@@ -79,7 +79,7 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         return aux;
     }
 
-    public boolean existe(String nome) {
+    public boolean existe(String CPF) {
         boolean status = true;
         boolean aux = false;
         int i = 0;
@@ -87,7 +87,7 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
             if (this.pessoas[i] == null) {
                 aux = false;
                 status = false;
-            } else if (this.pessoas[i].getNome().equals(nome)) {
+            } else if (this.pessoas[i].getNome().equals(CPF)) {
                 aux = true;
                 status = false;
             } else {

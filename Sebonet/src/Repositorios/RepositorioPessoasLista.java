@@ -31,35 +31,35 @@ public class RepositorioPessoasLista implements RepositorioPessoas {
         }
     }
 
-    public void remover(String nome) throws PessoaNaoEncontradaException { // Criar a exceção
+    public void remover(String CPF) throws PessoaNaoEncontradaException { // Criar a exceção
         if (this.pessoa == null) {
             throw new PessoaNaoEncontradaException();
-        } else if (this.pessoa.getNome().equals(nome)) {
+        } else if (this.pessoa.getCPF().equals(CPF)) {
             this.pessoa = this.proximo.pessoa;
             this.proximo = this.proximo.proximo;
+        } else {
+            this.proximo.remover(CPF);
         }
-
-        this.proximo.remover(nome);
     }
 
-    public Pessoas procurar(String nome) throws PessoaNaoEncontradaException { // Criar a exceção
+    public Pessoas procurar(String CPF) throws PessoaNaoEncontradaException { // Criar a exceção
         if (this.pessoa == null) {
             throw new PessoaNaoEncontradaException();
-        } else if (this.pessoa.getNome().equals(nome)) {
+        } else if (this.pessoa.getNome().equals(CPF)) {
             return this.pessoa;
         } else {
-            return this.proximo.procurar(nome);
+            return this.proximo.procurar(CPF);
         }
     }
 
-    public boolean existe(String nome) {
+    public boolean existe(String CPF) {
         boolean aux = false;
         if (this.pessoa == null) {
             return false;
-        } else if (this.pessoa.getNome().equals(nome)) {
+        } else if (this.pessoa.getNome().equals(CPF)) {
             aux = true;
         } else {
-            this.proximo.existe(nome);
+            this.proximo.existe(CPF);
         }
         return aux;
     }
