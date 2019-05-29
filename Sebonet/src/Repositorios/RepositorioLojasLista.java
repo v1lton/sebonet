@@ -1,5 +1,6 @@
 package Repositorios;
 import ClassesBasicas.Lojas;
+import Excecoes.LojaNaoEncontradaException;
 
 public class RepositorioLojasLista implements RepositorioLojas {
     private Lojas loja;
@@ -19,9 +20,9 @@ public class RepositorioLojasLista implements RepositorioLojas {
         }
     }
 
-    public void remover(int id) {
+    public void remover(int id)  throws LojaNaoEncontradaException {
         if(this.loja == null){
-            //erro
+            throw new LojaNaoEncontradaException();
         }else if(this.loja.getId() == id){
             this.loja = this.proximo.loja;
             this.proximo = this.proximo.proximo;
@@ -30,9 +31,9 @@ public class RepositorioLojasLista implements RepositorioLojas {
         }
     }
 
-    public void atualizar(Lojas loja) {
+    public void atualizar(Lojas loja)  throws LojaNaoEncontradaException{
         if(this.loja == null){
-            //erro
+            throw new LojaNaoEncontradaException();
         }else if(this.loja.getId() == loja.getId()){
             this.loja = loja;
         }else{
@@ -50,14 +51,13 @@ public class RepositorioLojasLista implements RepositorioLojas {
         }
     }
 
-    public Lojas procurar(int id) {
+    public Lojas procurar(int id)  throws LojaNaoEncontradaException{
         if(this.loja == null){
-            //erro
+            throw new LojaNaoEncontradaException();
         }else if(this.loja.getId() == id){
             return this.loja;
         }else{
             return this.proximo.procurar(id);
         }
-        return null;
     }
 }

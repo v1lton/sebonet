@@ -1,6 +1,8 @@
 package Repositorios;
 
 import ClassesBasicas.Lojas;
+import Excecoes.LojaNaoEncontradaException;
+import Excecoes.LimiteLojaException;
 
 public class RepositorioLojasArray  implements  RepositorioLojas {
     private Lojas[] lojas;
@@ -11,15 +13,15 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
         this.indice = 0;
     }
 
-   public void inserir(Lojas loja){
+   public void inserir(Lojas loja) throws LimiteLojaException {
         if(this.indice < this.lojas.length){
             lojas[this.indice] = loja;
         }else{
-            thro
+            throw new LimiteLojaException();
         }
     }
 
-    public void remover(int id){
+    public void remover(int id) throws LojaNaoEncontradaException{
 
         if(this.existe(id)){
             for(int i = 0; i < this.lojas.length; i++){
@@ -37,11 +39,11 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
             }
 
         }else{
-            //erro
+            throw new LojaNaoEncontradaException();
         }
     }
 
-    public void atualizar (Lojas loja){
+    public void atualizar (Lojas loja) throws LojaNaoEncontradaException{
         if(this.existe(loja.getId())){
             for(int i = 0; i < this.lojas.length; i++){
                 if(loja.getId() == this.lojas[i].getId()){
@@ -49,7 +51,7 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
                 }
             }
         }else{
-            //erro
+            throw new LojaNaoEncontradaException();
         }
     }
 
@@ -63,7 +65,7 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
        return false;
     }
 
-    public Lojas procurar (int id){
+    public Lojas procurar (int id) throws LojaNaoEncontradaException{
         if(this.existe(id)){
             for(int i = 0; i < this.lojas.length; i++){
                 if(this.lojas[i].getId() == id){
@@ -71,7 +73,7 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
                 }
             }
         }else{
-            //erro
+            throw new LojaNaoEncontradaException();
         }
         return null;
     }
