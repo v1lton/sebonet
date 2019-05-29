@@ -1,5 +1,7 @@
 package Repositorios;
 import ClassesBasicas.Pessoas;
+import Excecoes.LimitePessoasException;
+import Excecoes.PessoaNaoEncontradaException;
 
 public class RepositorioPessoasArray implements RepositorioPessoas{
     private Pessoas[] pessoas;
@@ -9,21 +11,21 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         this.pessoas = new Pessoas[500];
         this.indice = 0;
     }
-    public void inserir(Pessoas pessoa) { // Criar a exceção
+    public void inserir(Pessoas pessoa) throws LimitePessoasException {
         if (this.indice < 500) {
-        this.pessoas[this.indice] = pessoa;
-        this.indice++; }
-        else {
-            //erro
+            this.pessoas[this.indice] = pessoa;
+            this.indice++;
+        } else {
+            throw new LimitePessoasException();
         }
     }
 
-    public void atualizar(Pessoas pessoa) { // Criar a exceção
+    public void atualizar(Pessoas pessoa) throws PessoaNaoEncontradaException {
         boolean status = true;
         int i = 0;
         while (status && i < 500) {
             if (this.pessoas[i] == null) {
-                //erro
+                throw new PessoaNaoEncontradaException();
             } else if (this.pessoas[i].getNome().equals(pessoa.getNome())) {
                 this.pessoas[i] = pessoa;
                 status = false;
@@ -33,12 +35,12 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         }
     }
 
-    public void remover(String nome) { // Criar a exceção
+    public void remover(String nome) throws PessoaNaoEncontradaException {
         boolean status = true;
         int i = 0;
         while (status && i < 500) {
             if (this.pessoas[i] == null) {
-                //erro
+                throw new PessoaNaoEncontradaException();
             } else if (this.pessoas[i].getNome().equals(nome)) {
                 if (this.pessoas[i + 1] == null) {
                     this.pessoas[i] = null;
@@ -60,14 +62,13 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         }
     }
 
-    public Pessoas procurar(String nome) { // Criar a exceção
+    public Pessoas procurar(String nome) throws PessoaNaoEncontradaException {
         boolean status = true;
         int i = 0;
         Pessoas aux = null;
         while (status && i < 500) {
             if (this.pessoas[i] == null) {
-                return null;
-                //erro
+                throw new PessoaNaoEncontradaException();
             } else if (this.pessoas[i].getNome().equals(nome)) {
                 aux = this.pessoas[i];
                 status = false;
@@ -77,6 +78,7 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         }
         return aux;
     }
+
     public boolean existe(String nome) {
         boolean status = true;
         boolean aux = false;
