@@ -15,7 +15,7 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
         if(this.indice < this.lojas.length){
             lojas[this.indice] = loja;
         }else{
-            //erro
+            thro
         }
     }
 
@@ -42,7 +42,15 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
     }
 
     public void atualizar (Lojas loja){
-
+        if(this.existe(loja.getId())){
+            for(int i = 0; i < this.lojas.length; i++){
+                if(loja.getId() == this.lojas[i].getId()){
+                    this.lojas[i] = loja;
+                }
+            }
+        }else{
+            //erro
+        }
     }
 
     public boolean existe (int id){
@@ -56,7 +64,15 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
     }
 
     public Lojas procurar (int id){
-
-
+        if(this.existe(id)){
+            for(int i = 0; i < this.lojas.length; i++){
+                if(this.lojas[i].getId() == id){
+                    return this.lojas[i];
+                }
+            }
+        }else{
+            //erro
+        }
+        return null;
     }
 }
