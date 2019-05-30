@@ -16,6 +16,7 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
    public void inserir(Lojas loja) throws LimiteLojaException {
         if(this.indice < this.lojas.length){
             lojas[this.indice] = loja;
+            this.indice++;
         }else{
             throw new LimiteLojaException();
         }
