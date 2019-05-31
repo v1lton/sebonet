@@ -1,14 +1,16 @@
 package ClassesBasicas;
 
+import Excecoes.CargoNaoExistenteException;
+import Excecoes.SaldoInsuficienteException;
+
 public class Funcionarios extends Pessoas {
     private String cargo;
     private double salario;
     private int loja;
 
-    public Funcionarios ( String nome, String CPF, String numero, String email, double credito, String cargo, double salario, int loja) {
+    public Funcionarios ( String nome, String CPF, String numero, String email, double credito, String cargo, int loja) throws CargoNaoExistenteException {
         super (nome, CPF, numero, email, credito);
-        this.cargo = cargo;
-        this.salario = salario;
+        this.setCargo(cargo);
         this.loja = loja;
     }
 
@@ -16,8 +18,16 @@ public class Funcionarios extends Pessoas {
         return this.cargo;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    public void setCargo(String cargo) throws CargoNaoExistenteException {
+        if (cargo.equals("Vendedor")) {
+            this.cargo = cargo;
+            this.setSalario(2000.00);
+        } else if(cargo.equals("Gerente")) {
+            this.cargo = cargo;
+            this.setSalario(3000.00);
+        } else {
+            throw new CargoNaoExistenteException();
+        }
     }
 
     public double getSalario() {
@@ -36,7 +46,12 @@ public class Funcionarios extends Pessoas {
         this.loja = loja;
     }
 
-    public boolean comprar(String livro) {
-        return true;
+    public boolean comprar (Livro livro) throws SaldoInsuficienteException {
+        if (this.credito >= livro.getPreço()) {
+            this.credito -= livro.getPreço();
+            return true;
+        } else {
+            throw new SaldoInsuficienteException();
+        }
     }
 }
