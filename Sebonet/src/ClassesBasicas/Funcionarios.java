@@ -8,7 +8,7 @@ public class Funcionarios extends Pessoas {
     private double salario;
     private int loja;
 
-    public Funcionarios ( String nome, String CPF, String numero, String email, double credito, String cargo, double salario, int loja) throws CargoNaoExistenteException {
+    public Funcionarios ( String nome, String CPF, String numero, String email, double credito, String cargo, int loja) throws CargoNaoExistenteException {
         super (nome, CPF, numero, email, credito);
         this.setCargo(cargo);
         this.loja = loja;
