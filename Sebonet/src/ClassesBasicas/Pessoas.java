@@ -1,5 +1,8 @@
 package ClassesBasicas;
 
+import Excecoes.SaldoInsuficienteException;
+import ClassesBasicas.Livro;
+
 public abstract class Pessoas {
     private String nome;
     private String CPF;
@@ -55,6 +58,6 @@ public abstract class Pessoas {
         this.credito = credito;
     }
 
-    public abstract boolean comprar(String nomeLivro);
+    public abstract boolean comprar(Livro livro) throws SaldoInsuficienteException;
 
 }
