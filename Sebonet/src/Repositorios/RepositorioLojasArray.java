@@ -28,6 +28,8 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
             for(int i = 0; i < this.lojas.length; i++){
                 if(this.lojas[i].getId() == id){
                     this.lojas[i] = null;
+                    i = this.lojas.length;
+                    this.indice--;
                 }
             }
 
@@ -49,6 +51,7 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
             for(int i = 0; i < this.lojas.length; i++){
                 if(loja.getId() == this.lojas[i].getId()){
                     this.lojas[i] = loja;
+                    i = this.lojas.length;
                 }
             }
         }else{

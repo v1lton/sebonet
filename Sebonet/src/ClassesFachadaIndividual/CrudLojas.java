@@ -41,7 +41,7 @@ public class CrudLojas {
         return rep.existe(id);
     }
 
-    public void procurar (int id) throws LojaNaoEncontradaException {
-        rep.procurar(id);
+    public Lojas procurar (int id) throws LojaNaoEncontradaException {
+        return  rep.procurar(id);
     }
 }

@@ -5,7 +5,7 @@ public class Lojas {
     private int id;
     private int capacidadeMax;
     private  String endereco;
-    //private Livros[] livros;
+    private Livro[] livros;
 
     public Lojas(int id, int capacidadeMax, String endereco){
 
@@ -34,5 +34,12 @@ public class Lojas {
         this.endereco = endereco;
     }
 
+    public Livro[] getLivros() {
+        return livros;
+    }
+
+    public void setLivros(Livro[] livros) {
+        this.livros = livros;
+    }
 }
 
