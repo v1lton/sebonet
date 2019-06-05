@@ -11,11 +11,11 @@ public class CadastroPessoas {
         this.rep = rep;
     }
 
-    public void cadastrar(Pessoas pessoa) throws LimitePessoasException, PessoaNaoEncontradaException{
-        if (this.existe(pessoa.getCPF())) {
+    public void cadastrar(Pessoas pessoa) throws LimitePessoasException, PessoaCadastradaException{
+        if (!this.existe(pessoa.getCPF())) {
             rep.inserir(pessoa);
         } else {
-            throw new PessoaNaoEncontradaException();
+            throw new PessoaCadastradaException();
         }
 
     }
