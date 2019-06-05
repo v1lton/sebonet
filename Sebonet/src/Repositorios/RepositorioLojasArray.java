@@ -3,6 +3,7 @@ package Repositorios;
 import ClassesBasicas.Lojas;
 import Excecoes.LojaNaoEncontradaException;
 import Excecoes.LimiteLojaException;
+import java.util.Random;
 
 public class RepositorioLojasArray  implements  RepositorioLojas {
     private Lojas[] lojas;
@@ -62,7 +63,7 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
     public boolean existe (int id){
 
         for(int i = 0; i < this.lojas.length; i++){
-            if(this.lojas[i].getId() == id){
+            if(this.lojas[i] != null && this.lojas[i].getId() == id){
                 return true;
             }
         }

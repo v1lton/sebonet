@@ -20,7 +20,7 @@ public class Sebo {
         this.cadastroPessoas.cadastrar(pessoa);
     }
 
-    public void cadastroLojas(Lojas loja) throws LojaNaoEncontradaException, LimiteLojaException {
+    public void cadastroLojas(Lojas loja) throws LojaJaCadastradaException, LimiteLojaException {
         this.crudLojas.cadastrar(loja);
     }
 
