@@ -60,4 +60,5 @@ public class RepositorioLojasLista implements RepositorioLojas {
             return this.proximo.procurar(id);
         }
     }
+
 }

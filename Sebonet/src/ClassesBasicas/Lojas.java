@@ -3,14 +3,12 @@ package ClassesBasicas;
 public class Lojas {
 
     private int id;
-    private int capacidadeMax;
     private  String endereco;
-    private Livro[] livros;
+    private listaLivros livros;
 
-    public Lojas(int id, int capacidadeMax, String endereco){
+    public Lojas(int id, String endereco){
 
         this.id = id;
-        this.capacidadeMax = capacidadeMax;
         this.endereco = endereco;
     }
 
@@ -18,28 +16,42 @@ public class Lojas {
         return id;
     }
 
-    public int getCapacidadeMax() {
-        return capacidadeMax;
-    }
-
     public String getEndereco() {
         return endereco;
-    }
-
-    public void setCapacidadeMax(int capacidadeMax) {
-        this.capacidadeMax = capacidadeMax;
     }
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
-    public Livro[] getLivros() {
+    public listaLivros getLivros() {
         return livros;
     }
 
-    public void setLivros(Livro[] livros) {
+    public void setLivros(listaLivros livros) {
         this.livros = livros;
+    }
+
+    public void inserirLivro(Livro livro){
+        this.livros.inserir(livro);
     }
 }
 
+class listaLivros{
+
+    private Livro livro;
+    private listaLivros proximo;
+
+    public listaLivros(){
+        this.livro = null;
+        this.proximo = null;
+    }
+    public void inserir(Livro livro){
+        if(this.livro == null){
+            this.livro = livro;
+            this.proximo = new listaLivros();
+        }else {
+            this.proximo.inserir(livro);
+        }
+    }
+}

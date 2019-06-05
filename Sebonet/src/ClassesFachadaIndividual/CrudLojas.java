@@ -1,6 +1,7 @@
 package ClassesFachadaIndividual;
 
 import Excecoes.LimiteLojaException;
+import Excecoes.LojaJaCadastradaException;
 import Excecoes.LojaNaoEncontradaException;
 import Repositorios.RepositorioLojas;
 import ClassesBasicas.Lojas;
@@ -13,11 +14,11 @@ public class CrudLojas {
         this.rep = _rep;
     }
 
-    public void cadastrar(Lojas loja) throws LojaNaoEncontradaException, LimiteLojaException {
-        if(this.existe(loja.getId())){
+    public void cadastrar(Lojas loja) throws LimiteLojaException, LojaJaCadastradaException {
+        if(!this.existe(loja.getId())){
             rep.inserir(loja);
         }else {
-            throw new LojaNaoEncontradaException();
+            throw new LojaJaCadastradaException();
         }
     }
 
@@ -44,4 +45,8 @@ public class CrudLojas {
     public Lojas procurar (int id) throws LojaNaoEncontradaException {
         return  rep.procurar(id);
     }
+
+//    public void inserirLivro(Livro livro) throws CapacidadeMaxException {
+//        rep.inserirLivro();
+//    }
 }
