@@ -8,11 +8,9 @@ public class Clientes extends Pessoas {
         super(nome, CPF, numero, email, credito);
     }
 
-    public boolean comprar(Livro livro) throws SaldoInsuficienteException {
-        double valorDesconto = (livro.getPreço() * 0.9);
-        if(this.credito >= valorDesconto) {
-            this.credito -= valorDesconto;
-            return true;
+    public void retirarCredito(double valor) throws SaldoInsuficienteException {
+        if (this.credito >= valor) {
+            this.credito -= valor;
         } else {
             throw new SaldoInsuficienteException();
         }

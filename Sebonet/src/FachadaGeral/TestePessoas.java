@@ -11,7 +11,7 @@ public class TestePessoas {
         RepositorioPessoas rep = new RepositorioPessoasArray();
         CadastroPessoas cadastro = new CadastroPessoas(rep);
         try {
-            Pessoas pessoa = new Clientes("WIlton", "11897419465", "996571720", "wrs",100);
+            Pessoas pessoa = new Clientes("Wilton", "11897419465", "996571720", "wrs",100);
             Pessoas pessoa1 = new Funcionarios("ZE", "1189452563", "9999999", "teste@gmail.com", 100, "ator", 1);
             cadastro.cadastrar(pessoa);
             cadastro.cadastrar(pessoa1);

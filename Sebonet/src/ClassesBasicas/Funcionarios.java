@@ -8,7 +8,7 @@ public class Funcionarios extends Pessoas {
     private double salario;
     private int loja;
 
-    public Funcionarios ( String nome, String CPF, String numero, String email, double credito, String cargo, int loja) throws CargoNaoExistenteException {
+    public Funcionarios (String nome, String CPF, String numero, String email, double credito, String cargo, int loja) throws CargoNaoExistenteException {
         super (nome, CPF, numero, email, credito);
         this.setCargo(cargo);
         this.loja = loja;
@@ -46,11 +46,11 @@ public class Funcionarios extends Pessoas {
         this.loja = loja;
     }
 
-    public boolean comprar (Livro livro) throws SaldoInsuficienteException {
-        if (this.credito >= livro.getPreço()) {
-            this.credito -= livro.getPreço();
-            return true;
-        } else {
+    public void retirarCredito(double valor) throws SaldoInsuficienteException {
+        double valorFuncionario = valor * 0.8;
+        if (this.credito >= valorFuncionario) {
+            this.credito -= valorFuncionario;
+        }  else {
             throw new SaldoInsuficienteException();
         }
     }

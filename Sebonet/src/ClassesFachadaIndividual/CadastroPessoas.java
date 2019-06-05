@@ -20,7 +20,7 @@ public class CadastroPessoas {
 
     }
 
-    public void atualizar (Pessoas pessoa) throws PessoaNaoEncontradaException{
+    public void atualizar(Pessoas pessoa) throws PessoaNaoEncontradaException{
         if (this.existe(pessoa.getCPF())) {
             rep.atualizar(pessoa);
         } else {
@@ -28,7 +28,7 @@ public class CadastroPessoas {
         }
     }
 
-    public void remover (String CPF) throws PessoaNaoEncontradaException{
+    public void remover(String CPF) throws PessoaNaoEncontradaException{
         if (this.existe(CPF)) {
             rep.remover(CPF);
         } else {
@@ -46,3 +46,7 @@ public class CadastroPessoas {
 
 
 }
+// FACHADA
+// NEGOCIO
+// CLASSE
+// REPOSITORIO

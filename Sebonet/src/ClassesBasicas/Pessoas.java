@@ -58,6 +58,6 @@ public abstract class Pessoas {
         this.credito = credito;
     }
 
-    public abstract boolean comprar(Livro livro) throws SaldoInsuficienteException;
+    public abstract void retirarCredito(double valor) throws SaldoInsuficienteException;
 
 }
