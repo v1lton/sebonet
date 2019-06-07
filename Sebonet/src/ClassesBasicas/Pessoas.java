@@ -1,7 +1,6 @@
 package ClassesBasicas;
 
 import Excecoes.SaldoInsuficienteException;
-import ClassesBasicas.Livro;
 
 public abstract class Pessoas {
     private String nome;

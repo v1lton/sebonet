@@ -56,7 +56,7 @@ public class Sebo {
      */
 
     public boolean existePessoas(String CPF) {
-       return this.cadastroPessoas.existe(CPF);
+        return this.cadastroPessoas.existe(CPF);
     }
 
     public boolean existeLojas(int id) {
@@ -67,15 +67,22 @@ public class Sebo {
         return this.cadastroLivros.existe();
     }*/
 
+    public Pessoas procurarPessoas(String CPF) throws PessoaNaoEncontradaException{
+        return this.cadastroPessoas.procurar(CPF);
+    }
+
+    public Lojas procurarLojas(int id) throws LojaNaoEncontradaException {
+        return this.crudLojas.procurar(id);
+    }
+
+    /*public Livros procurarLivros() throws LivroNaoEncontradoException {
+        retur  this.cadastroLivros.procurar();
+    }*/
+
 }
 
 /*
 * Trocar livro (pega um qualquer e troca pelo oq eu der)
 * Vende livro
-* Promover funcionário
-* Organizar livros -- talvezzzzzzTALVEZMSM
-* Trocar Funcionario
-* Demitir Funcionario
-* Contratar
 * Pensar mais coisas pra livro
 * */

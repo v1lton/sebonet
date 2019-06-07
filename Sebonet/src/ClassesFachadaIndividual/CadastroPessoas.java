@@ -1,8 +1,10 @@
 package ClassesFachadaIndividual;
 
-import Excecoes.*;
-import Repositorios.*;
-import ClassesBasicas.*;
+import Excecoes.PessoaCadastradaException;
+import Excecoes.PessoaNaoEncontradaException;
+import Excecoes.LimitePessoasException;
+import Repositorios.RepositorioPessoas;
+import ClassesBasicas.Pessoas;
 
 public class CadastroPessoas {
     private RepositorioPessoas rep;
@@ -17,7 +19,6 @@ public class CadastroPessoas {
         } else {
             throw new PessoaCadastradaException();
         }
-
     }
 
     public void atualizar(Pessoas pessoa) throws PessoaNaoEncontradaException{
@@ -41,7 +42,11 @@ public class CadastroPessoas {
     }
 
     public Pessoas procurar(String CPF) throws PessoaNaoEncontradaException {
-        return rep.procurar(CPF);
+        if (this.rep.existe(CPF)) {
+            return this.rep.procurar(CPF);
+        } else {
+            throw new PessoaNaoEncontradaException();
+        }
     }
 
 
