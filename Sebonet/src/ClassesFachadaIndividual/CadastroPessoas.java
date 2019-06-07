@@ -51,7 +51,3 @@ public class CadastroPessoas {
 
 
 }
-// FACHADA
-// NEGOCIO
-// CLASSE
-// REPOSITORIO
