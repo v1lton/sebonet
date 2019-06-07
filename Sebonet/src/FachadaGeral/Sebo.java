@@ -1,19 +1,18 @@
 package FachadaGeral;
 
-import ClassesFachadaIndividual.CadastroPessoas;
-import ClassesFachadaIndividual.CrudLojas;
+import ClassesFachadaIndividual.*;
 import Excecoes.*;
 import ClassesBasicas.*;
 
 public class Sebo {
     private CadastroPessoas cadastroPessoas;
     private CrudLojas crudLojas;
-    //private CadastroLivros cadastroLivros;
+    private CadastroLivro cadastroLivros;
 
-    public Sebo (CadastroPessoas cadastroPessoas, CrudLojas crudLojas) {
+    public Sebo (CadastroPessoas cadastroPessoas, CrudLojas crudLojas, CadastroLivro cadastroLivros) {
         this.cadastroPessoas = cadastroPessoas;
         this.crudLojas = crudLojas;
-        // this.cadastroLivros = cadastroLivros;
+        this.cadastroLivros = cadastroLivros;
     }
 
     public void cadastroPessoas(Pessoas pessoa) throws LimitePessoasException, PessoaCadastradaException {
@@ -24,9 +23,9 @@ public class Sebo {
         this.crudLojas.cadastrar(loja);
     }
 
-    /*public void cadastroLivros(Livros livro) throws LivroNaoEncontradoException, LimiteLivrosException {
+    public void cadastroLivros(Livro livro) throws InventarioCheioException, LivroJaCadastradoException {
         this.cadastroLivros.cadastrar(livro);
-    }*/
+    }
 
     public void atualizarPessoas(Pessoas pessoa) throws PessoaNaoEncontradaException {
         this.cadastroPessoas.atualizar(pessoa);
@@ -36,10 +35,10 @@ public class Sebo {
         this.crudLojas.atualizar(loja);
     }
 
-    /*public void atualizarLivros(Livros livro) throws LivroNaoEncontradoException {
-        this.cadastroLojas.atualizar(loja);
+    public void atualizarLivros(Livro livro) throws LivroNaoEncontradoException {
+        this.cadastroLivros.atualizar(livro);
     }
-     */
+
 
     public void removerPessoas(String CPF) throws PessoaNaoEncontradaException {
         this.cadastroPessoas.remover(CPF);
@@ -49,11 +48,11 @@ public class Sebo {
         this.crudLojas.remover(id);
     }
 
-    /*
-    public void removerLivros() throws LivroNaoEncontradoException {
-        this.cadastrolivros.remover();
+
+    public void removerLivros(String codigo) throws LivroNaoEncontradoException {
+        this.cadastroLivros.remover(codigo);
      }
-     */
+
 
     public boolean existePessoas(String CPF) {
         return this.cadastroPessoas.existe(CPF);
@@ -63,9 +62,9 @@ public class Sebo {
         return this.crudLojas.existe(id);
     }
 
-    /*public boolean existeLivros() {
-        return this.cadastroLivros.existe();
-    }*/
+    public boolean existeLivros(String codigo) {
+        return this.cadastroLivros.existe(codigo);
+    }
 
     public Pessoas procurarPessoas(String CPF) throws PessoaNaoEncontradaException{
         return this.cadastroPessoas.procurar(CPF);
@@ -75,14 +74,8 @@ public class Sebo {
         return this.crudLojas.procurar(id);
     }
 
-    /*public Livros procurarLivros() throws LivroNaoEncontradoException {
-        retur  this.cadastroLivros.procurar();
-    }*/
+    public Livro procurarLivros(String codigo) throws LivroNaoEncontradoException {
+        return  this.cadastroLivros.procurar(codigo);
+    }
 
 }
-
-/*
-* Trocar livro (pega um qualquer e troca pelo oq eu der)
-* Vende livro
-* Pensar mais coisas pra livro
-* */
