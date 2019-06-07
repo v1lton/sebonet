@@ -7,11 +7,11 @@ public class Livro {
     private String codigo;
     private String editora;
 
-    public Livro(String nome, double preço, String autor, String codiqo,String editora) {
+    public Livro(String nome, double preço, String autor, String _codiqo,String editora) {
         this.titulo = nome;
         this.preço = preço;
         this.autor = autor;
-        this.codigo = codigo;
+        this.codigo = _codiqo;
         this.editora = editora;
 
     }

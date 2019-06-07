@@ -5,48 +5,54 @@ import Excecoes.LojaJaCadastradaException;
 import Excecoes.LojaNaoEncontradaException;
 import Repositorios.RepositorioLojas;
 import ClassesBasicas.Lojas;
+import ClassesBasicas.Livro;
+
 
 public class CrudLojas {
 
     private RepositorioLojas rep;
 
-    public CrudLojas(RepositorioLojas _rep){
+    public CrudLojas(RepositorioLojas _rep) {
         this.rep = _rep;
     }
 
     public void cadastrar(Lojas loja) throws LimiteLojaException, LojaJaCadastradaException {
-        if(!this.existe(loja.getId())){
+        if (!this.existe(loja.getId())) {
             rep.inserir(loja);
-        }else {
+        } else {
             throw new LojaJaCadastradaException();
         }
     }
 
-    public void atualizar (Lojas loja) throws LojaNaoEncontradaException {
-        if(this.existe(loja.getId())){
+    public void atualizar(Lojas loja) throws LojaNaoEncontradaException {
+        if (this.existe(loja.getId())) {
             rep.atualizar(loja);
-        }else {
+        } else {
             throw new LojaNaoEncontradaException();
         }
     }
 
-    public void remover (int id) throws LojaNaoEncontradaException {
-        if(this.existe(id)){
+    public void remover(int id) throws LojaNaoEncontradaException {
+        if (this.existe(id)) {
             rep.remover(id);
-        }else {
+        } else {
             throw new LojaNaoEncontradaException();
         }
     }
 
-    public boolean existe(int id){
+    public boolean existe(int id) {
         return rep.existe(id);
     }
 
-    public Lojas procurar (int id) throws LojaNaoEncontradaException {
-        return  rep.procurar(id);
+    public Lojas procurar(int id) throws LojaNaoEncontradaException {
+        return rep.procurar(id);
     }
 
-//    public void inserirLivro(Livro livro) throws CapacidadeMaxException {
-//        rep.inserirLivro();
-//    }
+    public void inserirLivro(Livro livro, Lojas loja) {
+        rep.inserirLivro(livro, loja);
+    }
+
+    public void removerLivro(Livro livro, Lojas loja) {
+        rep.removerLivro(livro, loja);
+    }
 }

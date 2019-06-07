@@ -10,6 +10,7 @@ public class Lojas {
 
         this.id = id;
         this.endereco = endereco;
+        this.livros = new listaLivros();
     }
 
     public int getId() {
@@ -35,6 +36,10 @@ public class Lojas {
     public void inserirLivro(Livro livro){
         this.livros.inserir(livro);
     }
+
+    public void removerLivro(Livro livro){
+        this.livros.remover(livro.getCodigo());
+    }
 }
 
 class listaLivros{
@@ -52,6 +57,16 @@ class listaLivros{
             this.proximo = new listaLivros();
         }else {
             this.proximo.inserir(livro);
+        }
+    }
+
+
+    public void remover(String codigo){
+        if(this.livro.getCodigo().equals(codigo)){
+            this.livro = this.proximo.livro;
+            this.proximo = this.proximo.proximo;
+        }else {
+            this.proximo.remover(codigo);
         }
     }
 }

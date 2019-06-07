@@ -3,6 +3,7 @@ package Repositorios;
 import ClassesBasicas.Lojas;
 import Excecoes.LojaNaoEncontradaException;
 import Excecoes.LimiteLojaException;
+import ClassesBasicas.Livro;
 import java.util.Random;
 
 public class RepositorioLojasArray  implements  RepositorioLojas {
@@ -82,4 +83,12 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
         }
         return null;
     }
+    public void inserirLivro(Livro livro, Lojas loja) {
+        loja.inserirLivro(livro);
+    }
+
+    public void removerLivro(Livro livro, Lojas loja){
+        loja.removerLivro(livro);
+    }
+
 }
