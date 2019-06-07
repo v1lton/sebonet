@@ -1,12 +1,10 @@
-import Excecoes.LimiteLojaException;
-import Excecoes.LojaJaCadastradaException;
-import Excecoes.LojaNaoEncontradaException;
+import Excecoes.*;
 
 public class InterfaceUsuario {
 
-    public static void main(String[] args) throws LimiteLojaException, LojaNaoEncontradaException, LojaJaCadastradaException {
+    public static void main(String[] args) throws PessoaNaoEncontradaException, PessoaCadastradaException, CargoNaoExistenteException, LimitePessoasException, SaldoInsuficienteException{
         System.out.println("Hello World!!");
-        FachadaGeral.TestesLojas.main();
+        FachadaGeral.TestePessoas.main();
     }
 
 }

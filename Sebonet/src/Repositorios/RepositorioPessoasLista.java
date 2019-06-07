@@ -12,7 +12,7 @@ public class RepositorioPessoasLista implements RepositorioPessoas {
         this.proximo = null;
     }
 
-    public void inserir(Pessoas pessoa) throws LimitePessoasException {
+    public void inserir(Pessoas pessoa) {
         if (this.pessoa == null) {
             this.pessoa = pessoa;
             this.proximo = new RepositorioPessoasLista();

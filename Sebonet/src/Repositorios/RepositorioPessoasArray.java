@@ -7,23 +7,28 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
     private Pessoas[] pessoas;
     private int indice;
 
-    public RepositorioPessoasArray() {
-        this.pessoas = new Pessoas[500];
+    public RepositorioPessoasArray(int valor) {
+        this.pessoas = new Pessoas[valor];
         this.indice = 0;
     }
-    public void inserir(Pessoas pessoa) throws LimitePessoasException {
-        if (this.indice < 500) {
+    public void inserir(Pessoas pessoa) {
+        if (this.indice != pessoas.length) {
             this.pessoas[this.indice] = pessoa;
             this.indice++;
         } else {
-            throw new LimitePessoasException();
+            Pessoas aux[] = new Pessoas[2 * pessoas.length];
+            for (int i =0; i < pessoas.length; i++) {
+                aux[i] = pessoas[i];
+            }
+            this.pessoas = aux;
+            inserir(pessoa);
         }
     }
 
     public void atualizar(Pessoas pessoa) throws PessoaNaoEncontradaException {
         boolean status = true;
         int i = 0;
-        while (status && i < 500) {
+        while (status && i < pessoas.length) {
             if (this.pessoas[i] == null) {
                 throw new PessoaNaoEncontradaException();
             } else if (this.pessoas[i].getNome().equals(pessoa.getNome())) {
@@ -38,7 +43,7 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
     public void remover(String CPF) throws PessoaNaoEncontradaException {
         boolean status = true;
         int i = 0;
-        while (status && i < 500) {
+        while (status && i < pessoas.length) {
             if (this.pessoas[i] == null) {
                 throw new PessoaNaoEncontradaException();
             } else if (this.pessoas[i].getCPF().equals(CPF)) {
@@ -47,7 +52,7 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
                 } else {
                     boolean aux = true;
                     while (aux) {
-                        if (this.pessoas[i + 1] != null && i < 500) {
+                        if (this.pessoas[i + 1] != null && i < pessoas.length) {
                             this.pessoas[i] = this.pessoas[i+1];
                             i++;
                         } else {
@@ -66,7 +71,7 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         boolean status = true;
         int i = 0;
         Pessoas aux = null;
-        while (status && i < 500) {
+        while (status && i < pessoas.length) {
             if (this.pessoas[i] == null) {
                 throw new PessoaNaoEncontradaException();
             } else if (this.pessoas[i].getCPF().equals(CPF)) {
@@ -83,7 +88,7 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         boolean status = true;
         boolean aux = false;
         int i = 0;
-        while (status && i < 500) {
+        while (status && i < pessoas.length) {
             if (this.pessoas[i] == null) {
                 aux = false;
                 status = false;
