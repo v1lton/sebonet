@@ -1,6 +1,7 @@
 package ClassesBasicas;
 
-public class Livro {    private String titulo;
+public class Livro {
+    private String titulo;
     private double preço;
     private String autor;
     private String codigo;
