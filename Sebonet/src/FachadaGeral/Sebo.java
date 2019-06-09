@@ -15,8 +15,16 @@ public class Sebo {
         this.cadastroLivros = cadastroLivros;
     }
 
-    public void cadastroPessoas(Pessoas pessoa) throws LimitePessoasException, PessoaCadastradaException {
-        this.cadastroPessoas.cadastrar(pessoa);
+    public void cadastroPessoas(Pessoas pessoa) throws LimitePessoasException, PessoaCadastradaException, LojaNaoEncontradaException {
+        if (pessoa instanceof Funcionarios) {
+            if (crudLojas.existe(((Funcionarios) pessoa).getLoja())) {
+                this.cadastroPessoas.cadastrar(pessoa);
+            } else {
+                throw new LojaNaoEncontradaException();
+            }
+        } else {
+            this.cadastroPessoas.cadastrar(pessoa);
+        }
     }
 
     public void cadastroLojas(Lojas loja) throws LojaJaCadastradaException, LimiteLojaException {
