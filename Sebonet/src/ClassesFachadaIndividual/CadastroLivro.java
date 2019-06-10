@@ -1,9 +1,9 @@
 package ClassesFachadaIndividual;
 
+import ClassesBasicas.Livros;
 import Excecoes.InventarioCheioException;
 import Excecoes.LivroJaCadastradoException;
 import Excecoes.LivroNaoEncontradoException;
-import ClassesBasicas.Livro;
 import Repositorios.RepositorioLivros;
 
 public class CadastroLivro {
@@ -14,9 +14,11 @@ public class CadastroLivro {
 
     }
 
-    public void cadastrar(Livro livro) throws LivroJaCadastradoException, InventarioCheioException {
-        if (this.repLivros.existe(livro.getCodigo())) {
+    public void cadastrar(Livros livro) throws LivroJaCadastradoException, InventarioCheioException {
+        if (!this.repLivros.existe(livro.getCodigo())) {
             repLivros.inserir(livro);
+        }else{
+            throw new LivroJaCadastradoException();
         }
     }
 
@@ -32,7 +34,7 @@ public class CadastroLivro {
         return repLivros.existe(codigo);
     }
 
-    public void atualizar(Livro livro) throws LivroNaoEncontradoException {
+    public void atualizar(Livros livro) throws LivroNaoEncontradoException {
         if (this.existe(livro.getCodigo())) {
             repLivros.atualizar(livro);
         } else {
@@ -40,7 +42,7 @@ public class CadastroLivro {
         }
     }
 
-    public Livro procurar(String codigo) throws LivroNaoEncontradoException {
+    public Livros procurar(String codigo) throws LivroNaoEncontradoException {
         if (this.existe(codigo)) {
             return this.repLivros.procurar(codigo);
         } else {

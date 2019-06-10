@@ -1,6 +1,6 @@
 package Repositorios;
+import ClassesBasicas.Livros;
 import ClassesBasicas.Lojas;
-import ClassesBasicas.Livro;
 import Excecoes.LojaNaoEncontradaException;
 import Excecoes.LimiteLojaException;
 
@@ -18,7 +18,7 @@ public interface RepositorioLojas {
 
     Lojas procurar (int id) throws LojaNaoEncontradaException;
 
-    void  inserirLivro(Livro livro, Lojas loja);
+    void  inserirLivro(Livros livro, Lojas loja);
 
-    void removerLivro(Livro livro, Lojas loja);
+    void removerLivro(Livros livro, Lojas loja);
 }

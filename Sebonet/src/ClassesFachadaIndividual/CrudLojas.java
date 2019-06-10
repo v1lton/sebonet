@@ -1,11 +1,11 @@
 package ClassesFachadaIndividual;
 
+import ClassesBasicas.Livros;
 import Excecoes.LimiteLojaException;
 import Excecoes.LojaJaCadastradaException;
 import Excecoes.LojaNaoEncontradaException;
 import Repositorios.RepositorioLojas;
 import ClassesBasicas.Lojas;
-import ClassesBasicas.Livro;
 
 
 public class CrudLojas {
@@ -48,11 +48,11 @@ public class CrudLojas {
         return rep.procurar(id);
     }
 
-    public void inserirLivro(Livro livro, Lojas loja) {
+    public void inserirLivro(Livros livro, Lojas loja) {
         rep.inserirLivro(livro, loja);
     }
 
-    public void removerLivro(Livro livro, Lojas loja) {
+    public void removerLivro(Livros livro, Lojas loja) {
         rep.removerLivro(livro, loja);
     }
 }

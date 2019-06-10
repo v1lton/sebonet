@@ -1,30 +1,34 @@
 package Repositorios;
 
-import ClassesBasicas.Livro;
+import ClassesBasicas.Livros;
 import Excecoes.LivroJaCadastradoException;
 import Excecoes.LivroNaoEncontradoException;
 import Excecoes.InventarioCheioException;
 
 public class RepositorioLivroArray implements RepositorioLivros {
-    private Livro[] ListaLivros;
+    private Livros[] ListaLivros;
     private int posicao;
 
     public RepositorioLivroArray(int tam) {
-        this.ListaLivros = new Livro[tam];
+        this.ListaLivros = new Livros[tam];
         this.posicao = 0;
     }
 
-    public void inserir(Livro livro)throws InventarioCheioException {
-        if (this.posicao < 150) {
-            this.ListaLivros[this.posicao] = livro;
-            this.posicao = this.posicao + 1;
-        } else {
-            throw new InventarioCheioException();
-        }
-    }
+    public void inserir(Livros livro)throws InventarioCheioException, LivroJaCadastradoException {
+       if(existe(livro.getCodigo())) {
+           throw new LivroJaCadastradoException();
+       }
+           else if (this.posicao < 150) {
+               this.ListaLivros[this.posicao] = livro;
+               this.posicao = this.posicao + 1;
+           } else {
+               throw new InventarioCheioException();
+           }
+       }
+
 
     public void remover(String codigo)throws LivroNaoEncontradoException {
-        if (existe(codigo) == true) {
+        if (existe(codigo)) {
             for (int i = 0; i < 150; i++) {
                 if (codigo.equals(this.ListaLivros[i].getCodigo())) {
                     this.ListaLivros[i] = null;
@@ -36,10 +40,10 @@ public class RepositorioLivroArray implements RepositorioLivros {
         }
     }
 
-    public void atualizar(Livro livro)throws LivroNaoEncontradoException {
-        if (existe(livro.getCodigo()) == true) {
+    public void atualizar(Livros livro)throws LivroNaoEncontradoException {
+        if (existe(livro.getCodigo()) ) {
             for (int i = 0; i < 150; i++) {
-                if (this.ListaLivros[i].equals(livro.getCodigo())) {
+                if (this.ListaLivros[i]==livro) {
                     this.ListaLivros[i] = livro;
                 }
             }
@@ -50,14 +54,14 @@ public class RepositorioLivroArray implements RepositorioLivros {
 
     public boolean existe(String codigo) {
         for (int i = 0; i < 150; i++) {
-            if (this.ListaLivros[i].getCodigo().equals(codigo)) {
+            if ( ListaLivros[i]!= null && codigo.equals(ListaLivros[i].getCodigo())) {
                 return true;
             }
         }
         return false;
     }
 
-    public Livro procurar(String codigo) throws LivroNaoEncontradoException{
+    public Livros procurar(String codigo) throws LivroNaoEncontradoException{
         boolean check = false;
         for (int i = 0; i < 150; i++) {
             if (this.ListaLivros[i].getCodigo().equals(codigo)) {
@@ -65,7 +69,7 @@ public class RepositorioLivroArray implements RepositorioLivros {
                 return ListaLivros[i];
             }
         }
-        if (check == false) {
+        if (!check ) {
             throw new LivroNaoEncontradoException();
         }
         return null;

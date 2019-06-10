@@ -1,6 +1,6 @@
 package Repositorios;
+import ClassesBasicas.Livros;
 import ClassesBasicas.Lojas;
-import ClassesBasicas.Livro;
 import Excecoes.LojaNaoEncontradaException;
 
 public class RepositorioLojasLista implements RepositorioLojas {
@@ -61,11 +61,11 @@ public class RepositorioLojasLista implements RepositorioLojas {
             return this.proximo.procurar(id);
         }
     }
-    public void inserirLivro(Livro livro, Lojas loja) {
+    public void inserirLivro(Livros livro, Lojas loja) {
         loja.inserirLivro(livro);
     }
 
-    public void removerLivro(Livro livro, Lojas loja){
+    public void removerLivro(Livros livro, Lojas loja){
         loja.removerLivro(livro);
     }
 

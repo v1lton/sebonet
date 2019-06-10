@@ -25,6 +25,7 @@ public class Lojas {
         this.endereco = endereco;
     }
 
+
     public listaLivros getLivros() {
         return livros;
     }
@@ -33,25 +34,25 @@ public class Lojas {
         this.livros = livros;
     }
 
-    public void inserirLivro(Livro livro){
+    public void inserirLivro(Livros livro){
         this.livros.inserir(livro);
     }
 
-    public void removerLivro(Livro livro){
+    public void removerLivro(Livros livro){
         this.livros.remover(livro.getCodigo());
     }
 }
 
 class listaLivros{
 
-    private Livro livro;
+    private Livros livro;
     private listaLivros proximo;
 
     public listaLivros(){
         this.livro = null;
         this.proximo = null;
     }
-    public void inserir(Livro livro){
+    public void inserir(Livros livro){
         if(this.livro == null){
             this.livro = livro;
             this.proximo = new listaLivros();

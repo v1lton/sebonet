@@ -31,7 +31,7 @@ public class Sebo {
         this.crudLojas.cadastrar(loja);
     }
 
-    public void cadastroLivros(Livro livro) throws InventarioCheioException, LivroJaCadastradoException {
+    public void cadastroLivros(Livros livro) throws InventarioCheioException, LivroJaCadastradoException {
         this.cadastroLivros.cadastrar(livro);
     }
 
@@ -43,7 +43,7 @@ public class Sebo {
         this.crudLojas.atualizar(loja);
     }
 
-    public void atualizarLivros(Livro livro) throws LivroNaoEncontradoException {
+    public void atualizarLivros(Livros livro) throws LivroNaoEncontradoException {
         this.cadastroLivros.atualizar(livro);
     }
 
@@ -82,7 +82,7 @@ public class Sebo {
         return this.crudLojas.procurar(id);
     }
 
-    public Livro procurarLivros(String codigo) throws LivroNaoEncontradoException {
+    public Livros procurarLivros(String codigo) throws LivroNaoEncontradoException {
         return  this.cadastroLivros.procurar(codigo);
     }
 

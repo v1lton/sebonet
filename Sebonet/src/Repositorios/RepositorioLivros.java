@@ -1,18 +1,18 @@
 package Repositorios;
 
+import ClassesBasicas.Livros;
 import Excecoes.InventarioCheioException;
 import Excecoes.LivroJaCadastradoException;
 import Excecoes.LivroNaoEncontradoException;
-import ClassesBasicas.Livro;
 
 public interface RepositorioLivros {
-    void inserir(Livro livro) throws LivroJaCadastradoException, InventarioCheioException;
+    void inserir(Livros livro) throws LivroJaCadastradoException, InventarioCheioException;
 
     void remover(String codigo) throws LivroNaoEncontradoException;
 
-    void atualizar(Livro livro) throws LivroNaoEncontradoException;
+    void atualizar(Livros livro) throws LivroNaoEncontradoException;
 
     boolean existe(String codigo);
 
-    Livro procurar(String codigo) throws LivroNaoEncontradoException;
+    Livros procurar(String codigo) throws LivroNaoEncontradoException;
 }

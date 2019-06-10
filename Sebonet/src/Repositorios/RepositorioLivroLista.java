@@ -1,19 +1,19 @@
 package Repositorios;
 
+import ClassesBasicas.Livros;
 import Excecoes.LivroJaCadastradoException;
 import Excecoes.LivroNaoEncontradoException;
-import ClassesBasicas.Livro;
 
 public class RepositorioLivroLista implements RepositorioLivros {
-    private Livro livro;
+    private Livros livro;
     private RepositorioLivroLista proximo;
 
-    public RepositorioLivroLista() {
+    private RepositorioLivroLista() {
         this.livro = null;
         this.proximo = null;
     }
 
-    public void inserir(Livro livro)throws LivroJaCadastradoException {
+    public void inserir(Livros livro)throws LivroJaCadastradoException {
         if (this.livro == null) {
             this.livro = livro;
             this.proximo = new RepositorioLivroLista();
@@ -29,7 +29,7 @@ public class RepositorioLivroLista implements RepositorioLivros {
     public void remover(String codigo) throws LivroNaoEncontradoException {
         if (this.livro == null) {
             throw new LivroNaoEncontradoException();
-        } else if (this.livro.getCodigo().equals(livro.getCodigo())) {
+        } else if (this.livro.getCodigo().equals(codigo)) {
             this.livro = this.proximo.livro;
             this.proximo = this.proximo.proximo;
         } else {
@@ -38,7 +38,7 @@ public class RepositorioLivroLista implements RepositorioLivros {
     }
 
     @Override
-    public void atualizar(Livro livro)throws LivroNaoEncontradoException {
+    public void atualizar(Livros livro)throws LivroNaoEncontradoException {
         if (this.livro == null) {
             throw new LivroNaoEncontradoException();
         } else if (this.livro.getCodigo().equals(livro.getCodigo())) {
@@ -53,12 +53,13 @@ public class RepositorioLivroLista implements RepositorioLivros {
             return false;
         } else if (this.livro.getCodigo().equals(codigo)) {
             return true;
+        }else{
+            return this.proximo.existe(codigo);
         }
-        return false;
     }
 
     @Override
-    public Livro procurar(String codigo)throws LivroNaoEncontradoException {
+    public Livros procurar(String codigo)throws LivroNaoEncontradoException {
         if (this.livro == null) {
             throw new LivroNaoEncontradoException();
         } else if (this.livro.getCodigo().equals(codigo)) {

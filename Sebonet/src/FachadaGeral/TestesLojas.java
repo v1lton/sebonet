@@ -1,13 +1,12 @@
 package FachadaGeral;
 
+import ClassesBasicas.Livros;
 import ClassesBasicas.Lojas;
-import ClassesBasicas.Livro;
 import ClassesFachadaIndividual.CrudLojas;
 import Excecoes.LimiteLojaException;
 import Excecoes.LojaJaCadastradaException;
 import Excecoes.LojaNaoEncontradaException;
 import Repositorios.RepositorioLojas;
-import Repositorios.RepositorioLojasArray;
 import Repositorios.RepositorioLojasLista;
 
 public class TestesLojas {
@@ -26,8 +25,8 @@ public class TestesLojas {
         loja.setEndereco("2121");
         cadastro.atualizar(cadastro.procurar(loja.getId()));
         cadastro.remover(loja1.getId());
-        Livro livro = new Livro("asd", 21, "1", "1", "1");
-        Livro livro1 = new Livro("21", 21, "2", "2", "1");
+        Livros livro = new Livros("asd", 21, "1", "1", "1");
+        Livros livro1 = new Livros("21", 21, "2", "2", "1");
         cadastro.inserirLivro(livro, loja);
         cadastro.inserirLivro(livro1, loja);
         cadastro.removerLivro(livro1, loja);
