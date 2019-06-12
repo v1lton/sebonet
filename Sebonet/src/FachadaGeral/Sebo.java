@@ -6,18 +6,18 @@ import ClassesBasicas.*;
 
 public class Sebo {
     private CadastroPessoas cadastroPessoas;
-    private CrudLojas crudLojas;
-    private CadastroLivro cadastroLivros;
+    private CadastroLojas cadastroLojas;
+    private CadastroLivros cadastroLivros;
 
-    public Sebo (CadastroPessoas cadastroPessoas, CrudLojas crudLojas, CadastroLivro cadastroLivros) {
+    public Sebo (CadastroPessoas cadastroPessoas, CadastroLojas crudLojas, CadastroLivros cadastroLivros) {
         this.cadastroPessoas = cadastroPessoas;
-        this.crudLojas = crudLojas;
+        this.cadastroLojas = crudLojas;
         this.cadastroLivros = cadastroLivros;
     }
 
-    public void cadastroPessoas(Pessoas pessoa) throws LimitePessoasException, PessoaCadastradaException, LojaNaoEncontradaException {
+    public void cadastroPessoas(Pessoas pessoa) throws PessoaCadastradaException, LojaNaoEncontradaException {
         if (pessoa instanceof Funcionarios) {
-            if (crudLojas.existe(((Funcionarios) pessoa).getLoja())) {
+            if (cadastroLojas.existe(((Funcionarios) pessoa).getLoja())) {
                 this.cadastroPessoas.cadastrar(pessoa);
             } else {
                 throw new LojaNaoEncontradaException();
@@ -28,7 +28,7 @@ public class Sebo {
     }
 
     public void cadastroLojas(Lojas loja) throws LojaJaCadastradaException, LimiteLojaException {
-        this.crudLojas.cadastrar(loja);
+        this.cadastroLojas.cadastrar(loja);
     }
 
     public void cadastroLivros(Livros livro) throws InventarioCheioException, LivroJaCadastradoException {
@@ -40,7 +40,7 @@ public class Sebo {
     }
 
     public void atualizarLojas(Lojas loja) throws LojaNaoEncontradaException {
-        this.crudLojas.atualizar(loja);
+        this.cadastroLojas.atualizar(loja);
     }
 
     public void atualizarLivros(Livros livro) throws LivroNaoEncontradoException {
@@ -53,7 +53,7 @@ public class Sebo {
     }
 
     public void removerLojas(int id) throws LojaNaoEncontradaException {
-        this.crudLojas.remover(id);
+        this.cadastroLojas.remover(id);
     }
 
 
@@ -67,7 +67,7 @@ public class Sebo {
     }
 
     public boolean existeLojas(int id) {
-        return this.crudLojas.existe(id);
+        return this.cadastroLojas.existe(id);
     }
 
     public boolean existeLivros(String codigo) {
@@ -79,7 +79,7 @@ public class Sebo {
     }
 
     public Lojas procurarLojas(int id) throws LojaNaoEncontradaException {
-        return this.crudLojas.procurar(id);
+        return this.cadastroLojas.procurar(id);
     }
 
     public Livros procurarLivros(String codigo) throws LivroNaoEncontradoException {
