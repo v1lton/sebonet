@@ -1,6 +1,6 @@
 package ClassesFachadaIndividual;
 
-import Excecoes.PessoaCadastradaException;
+import Excecoes.PessoaJaCadastradaException;
 import Excecoes.PessoaNaoEncontradaException;
 import Repositorios.RepositorioPessoas;
 import ClassesBasicas.Pessoas;
@@ -12,11 +12,11 @@ public class CadastroPessoas {
         this.rep = rep;
     }
 
-    public void cadastrar(Pessoas pessoa) throws PessoaCadastradaException{
+    public void cadastrar(Pessoas pessoa) throws PessoaJaCadastradaException{
         if (!this.existe(pessoa.getCPF())) {
             rep.inserir(pessoa);
         } else {
-            throw new PessoaCadastradaException();
+            throw new PessoaJaCadastradaException();
         }
     }
 
