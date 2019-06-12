@@ -7,9 +7,9 @@ import ClassesBasicas.*;
 public class Sebo {
     private CadastroPessoas cadastroPessoas;
     private CrudLojas crudLojas;
-    private CadastroLivro cadastroLivros;
+    private CadastroLivros cadastroLivros;
 
-    public Sebo (CadastroPessoas cadastroPessoas, CrudLojas crudLojas, CadastroLivro cadastroLivros) {
+    public Sebo (CadastroPessoas cadastroPessoas, CrudLojas crudLojas, CadastroLivros cadastroLivros) {
         this.cadastroPessoas = cadastroPessoas;
         this.crudLojas = crudLojas;
         this.cadastroLivros = cadastroLivros;

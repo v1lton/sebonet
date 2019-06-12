@@ -62,16 +62,16 @@ public class RepositorioLivroArray implements RepositorioLivros {
     }
 
     public Livros procurar(String codigo) throws LivroNaoEncontradoException{
-        boolean check = false;
+
         for (int i = 0; i < 150; i++) {
             if (this.ListaLivros[i].getCodigo().equals(codigo)) {
-                check = true;
                 return ListaLivros[i];
+
             }
-        }
-        if (!check ) {
+        }if(!existe(codigo)){
             throw new LivroNaoEncontradoException();
         }
+
         return null;
     }
 

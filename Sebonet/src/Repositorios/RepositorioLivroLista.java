@@ -17,7 +17,7 @@ public class RepositorioLivroLista implements RepositorioLivros {
         if (this.livro == null) {
             this.livro = livro;
             this.proximo = new RepositorioLivroLista();
-        }if(this.livro.getCodigo().equals(livro.getCodigo())) {
+        }else if(existe(livro.getCodigo())) {
             throw new LivroJaCadastradoException();
         }
         else {
@@ -27,7 +27,7 @@ public class RepositorioLivroLista implements RepositorioLivros {
 
     @Override
     public void remover(String codigo) throws LivroNaoEncontradoException {
-        if (this.livro == null) {
+        if (!existe(codigo)) {
             throw new LivroNaoEncontradoException();
         } else if (this.livro.getCodigo().equals(codigo)) {
             this.livro = this.proximo.livro;
@@ -39,10 +39,12 @@ public class RepositorioLivroLista implements RepositorioLivros {
 
     @Override
     public void atualizar(Livros livro)throws LivroNaoEncontradoException {
-        if (this.livro == null) {
+        if (!existe(livro.getCodigo())) {
             throw new LivroNaoEncontradoException();
-        } else if (this.livro.getCodigo().equals(livro.getCodigo())) {
+        } else if(this.livro.getCodigo().equals(livro.getCodigo())){
             this.livro = livro;
+        }else{
+            this.proximo.atualizar(livro);
         }
 
     }
@@ -62,7 +64,7 @@ public class RepositorioLivroLista implements RepositorioLivros {
     public Livros procurar(String codigo)throws LivroNaoEncontradoException {
         if (this.livro == null) {
             throw new LivroNaoEncontradoException();
-        } else if (this.livro.getCodigo().equals(codigo)) {
+        } else if (existe(codigo)) {
             return this.livro;
         }
         return this.proximo.procurar(codigo);
