@@ -48,19 +48,6 @@ public class CadastroLojas {
         return rep.procurar(id);
     }
 
-    public void inserirLivro(Livros livro, Lojas loja) {
-        loja.inserirLivro(livro);
-    }
-
-    public void removerLivro(String codigo, Lojas loja) {
-        loja.removerLivro(codigo);
-    }
-
-    public boolean existeLivro(Livros livro, Lojas loja){
-        return loja.existeLivro(livro);
-    }
-
-
 }
 
 

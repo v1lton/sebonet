@@ -83,7 +83,7 @@ public class InterfaceUsuario {
             //sebo.cadastroPessoas(cli01);
             Lojas loja01 = new Lojas(01, "Recife");
             //sebo.cadastroLojas(loja01);
-            sebo.cadastroLojas.inserirLivro(livro01, loja01);
+            sebo.inserirLivro(livro01, loja01);
             sebo.venderLivros(livro01, cli01, loja01);
         } catch (Exception e) {
             System.out.println(e.getMessage());

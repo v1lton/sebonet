@@ -94,9 +94,9 @@ public class Sebo {
         } else if (!this.existeLojas(loja.getId())) {
             throw new LojaNaoEncontradaException();
         } else {
-            if (cadastroLojas.existeLivro(livro, loja)) {
+            if (this.existeLivro(livro, loja)) {
                 if (pessoa.getCredito() >= livro.getPreco()) {
-                   cadastroLojas.removerLivro(livro.getCodigo(), loja);
+                   this.removerLivro(livro.getCodigo(), loja);
                     pessoa.retirarCredito(livro.getPreco());
                     this.atualizarLojas(loja);
                     this.atualizarPessoas(pessoa);
@@ -108,5 +108,18 @@ public class Sebo {
             }
         }
     }
+
+    public void inserirLivro(Livros livro, Lojas loja) {
+        loja.inserirLivro(livro);
+    }
+
+    public void removerLivro(String codigo, Lojas loja) {
+        loja.removerLivro(codigo);
+    }
+
+    public boolean existeLivro(Livros livro, Lojas loja){
+        return loja.existeLivro(livro);
+    }
+
 
 }
