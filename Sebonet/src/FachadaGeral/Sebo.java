@@ -15,7 +15,7 @@ public class Sebo {
         this.cadastroLivros = cadastroLivros;
     }
 
-    public void cadastroPessoas(Pessoas pessoa) throws LimitePessoasException, PessoaCadastradaException, LojaNaoEncontradaException {
+    public void cadastroPessoas(Pessoas pessoa) throws PessoaCadastradaException, LojaNaoEncontradaException {
         if (pessoa instanceof Funcionarios) {
             if (CadastroLojas.existe(((Funcionarios) pessoa).getLoja())) {
                 this.cadastroPessoas.cadastrar(pessoa);

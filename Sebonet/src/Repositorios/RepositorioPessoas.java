@@ -1,6 +1,5 @@
 package Repositorios;
 import ClassesBasicas.Pessoas;
-import Excecoes.LimitePessoasException;
 import Excecoes.PessoaNaoEncontradaException;
 
 public interface RepositorioPessoas {
