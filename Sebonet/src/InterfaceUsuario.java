@@ -16,7 +16,17 @@ public class InterfaceUsuario {
         Sebo sebo = new Sebo(crudPessoas, crudLojas, crudLivros);
         TesteLivro.main();
         try {
-            sebo.cadastroPessoas(new Funcionarios("Jose", "11897419465", "81996571720", "js@cin.ufpe.br", 200, "Gerente", 01));
+            Lojas loja01 = new Lojas(01, "Recife");
+            sebo.cadastroLojas(loja01);
+        } catch (LojaJaCadastradaException e) {
+            System.out.println(e.getMessage());
+
+        } catch (LimiteLojaException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            Pessoas f01 = new Funcionarios("Jose", "11897419465", "81996571720", "js@cin.ufpe.br", 200, "Gerente", 01);
+            sebo.cadastroPessoas(f01);
         } catch (PessoaJaCadastradaException e) {
             System.out.println(e.getMessage());
         } catch (CargoNaoExistenteException e) {
@@ -44,6 +54,26 @@ public class InterfaceUsuario {
         } catch (PessoaNaoEncontradaException e){
             System.out.println(e.getMessage());
         }
+        try {
+            Livros livro01 = new Livros("A Elite do Atraso", 35, "Jessé Souza", "01", "Viver");
+            sebo.cadastroLivros(livro01);
+        } catch (LivroJaCadastradoException e) {
+            System.out.println(e.getMessage());
+        } catch (InventarioCheioException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            Pessoas cli01 = new Clientes("Nalbert", "1189741455", "81996574214", "nms@cin.ufpe.br", 33);
+            sebo.cadastroPessoas(cli01);
+        } catch (PessoaJaCadastradaException e) {
+            System.out.println(e.getMessage());
+        } catch (LojaNaoEncontradaException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+
+
     }
 
 }
