@@ -23,7 +23,7 @@ public class RepositorioPessoasLista implements RepositorioPessoas {
     public void atualizar(Pessoas pessoa) throws PessoaNaoEncontradaException { // Criar a exceção
         if (this.pessoa == null) {
             throw new PessoaNaoEncontradaException();
-        } else if (this.pessoa.getNome().equals(pessoa.getNome())) {
+        } else if (this.pessoa.getCPF().equals(pessoa.getCPF())) {
             this.pessoa = pessoa;
         } else {
             this.proximo.atualizar(pessoa);
@@ -44,7 +44,7 @@ public class RepositorioPessoasLista implements RepositorioPessoas {
     public Pessoas procurar(String CPF) throws PessoaNaoEncontradaException { // Criar a exceção
         if (this.pessoa == null) {
             throw new PessoaNaoEncontradaException();
-        } else if (this.pessoa.getNome().equals(CPF)) {
+        } else if (this.pessoa.getCPF().equals(CPF)) {
             return this.pessoa;
         } else {
             return this.proximo.procurar(CPF);
@@ -55,7 +55,7 @@ public class RepositorioPessoasLista implements RepositorioPessoas {
         boolean aux = false;
         if (this.pessoa == null) {
             return false;
-        } else if (this.pessoa.getNome().equals(CPF)) {
+        } else if (this.pessoa.getCPF().equals(CPF)) {
             aux = true;
         } else {
             this.proximo.existe(CPF);
