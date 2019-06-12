@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc247e7f-b64c-4753-bca0-393a0fc025c0" name="Default Changelist" comment="remover livro na loja -&gt; sebo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sebonet/InterfaceUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sebonet/InterfaceUsuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sebonet/Repositorios/RepositorioLojas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sebonet/Repositorios/RepositorioLojas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sebonet/Repositorios/RepositorioPessoasArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sebonet/Repositorios/RepositorioPessoasArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InterfaceUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InterfaceUsuario.java" afterDir="false" />
-    </list>
+    <list default="true" id="cc247e7f-b64c-4753-bca0-393a0fc025c0" name="Default Changelist" comment="remover livro na loja -&gt; sebo" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +22,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FachadaGeral/Sebo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="786">
-              <caret line="132" selection-start-line="132" selection-end-line="132" />
+            <state relative-caret-position="530">
+              <caret line="103" column="59" lean-forward="true" selection-start-line="103" selection-start-column="59" selection-end-line="103" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#atualizarLivros#0;class#Sebo#0" />
@@ -43,18 +37,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/InterfaceUsuario.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
-              <caret line="109" lean-forward="true" selection-end-line="109" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClassesFachadaIndividual/CadastroLojas.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -72,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClassesBasicas/Lojas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="40" column="42" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="42" />
+            <state>
+              <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
               <folding>
                 <element signature="e#301#302#0" expanded="true" />
                 <element signature="e#326#327#0" expanded="true" />
@@ -164,6 +146,12 @@
               <item name="Sebonet" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sebonet" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ClassesBasicas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sebonet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sebonet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ClassesFachadaIndividual" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -171,6 +159,12 @@
               <item name="Sebonet" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Excecoes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sebonet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sebonet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="FachadaGeral" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sebonet" type="b2602c69:ProjectViewProjectNode" />
@@ -187,7 +181,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560363890207" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560365041533" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -265,7 +259,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28666297" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.28666297" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -292,6 +286,34 @@
       <window_info anchor="right" id="Maven" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28666297" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" weight="0.34449244" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39956802" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5002767" side_tool="true" weight="0.32937366" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32937366" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+    </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="oi" />
@@ -461,25 +483,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClassesBasicas/Lojas.java">
+    <entry file="file://$PROJECT_DIR$/src/InterfaceUsuario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="40" column="42" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="42" />
+        <state relative-caret-position="1065">
+          <caret line="71" column="12" lean-forward="true" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
           <folding>
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#326#327#0" expanded="true" />
-            <element signature="e#678#679#0" expanded="true" />
-            <element signature="e#720#721#0" expanded="true" />
-            <element signature="e#766#767#0" expanded="true" />
-            <element signature="e#809#810#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FachadaGeral/Sebo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="786">
-          <caret line="132" selection-start-line="132" selection-end-line="132" />
+        <state relative-caret-position="530">
+          <caret line="103" column="59" lean-forward="true" selection-start-line="103" selection-start-column="59" selection-end-line="103" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#atualizarLivros#0;class#Sebo#0" />
@@ -487,6 +504,21 @@
             <element signature="method#removerLojas#0;class#Sebo#0" />
             <element signature="method#removerLivros#0;class#Sebo#0" />
             <element signature="method#procurarLivros#0;class#Sebo#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClassesBasicas/Lojas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+          <folding>
+            <element signature="e#301#302#0" expanded="true" />
+            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#678#679#0" expanded="true" />
+            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#809#810#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -500,16 +532,6 @@
             <element signature="method#cadastrar#0;class#CadastroLojas#0" />
             <element signature="method#atualizar#0;class#CadastroLojas#0" />
             <element signature="method#remover#0;class#CadastroLojas#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InterfaceUsuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="109" lean-forward="true" selection-end-line="109" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
