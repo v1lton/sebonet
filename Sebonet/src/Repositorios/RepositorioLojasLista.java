@@ -64,13 +64,6 @@ public class RepositorioLojasLista implements RepositorioLojas {
             return this.proximo.procurar(id);
         }
     }
-    public void inserirLivro(Livros livro, Lojas loja) {
-        loja.inserirLivro(livro);
-    }
-
-    public void removerLivro(String codigo, Lojas loja){
-        loja.removerLivro(codigo);
-    }
 
 }
 

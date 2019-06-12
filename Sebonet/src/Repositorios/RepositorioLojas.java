@@ -6,7 +6,7 @@ import Excecoes.LimiteLojaException;
 
 public interface RepositorioLojas {
 
-    void inserir(Lojas loja) throws LimiteLojaException;
+    void inserir(Lojas loja);
 
 
     void remover(int id) throws LojaNaoEncontradaException;
@@ -17,8 +17,4 @@ public interface RepositorioLojas {
     boolean existe (int id);
 
     Lojas procurar (int id) throws LojaNaoEncontradaException;
-
-    void  inserirLivro(Livros livro, Lojas loja);
-
-    void removerLivro(String codigo, Lojas loja);
 }

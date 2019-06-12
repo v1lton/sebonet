@@ -14,7 +14,7 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
         this.indice = 0;
     }
 
-    public void inserir(Lojas loja) throws LimiteLojaException {
+    public void inserir(Lojas loja){
         if(this.indice < this.lojas.length){
             lojas[this.indice] = loja;
         }else{
@@ -90,13 +90,6 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
             throw new LojaNaoEncontradaException();
         }
         return null;
-    }
-    public void inserirLivro(Livros livro, Lojas loja) {
-        loja.inserirLivro(livro);
-    }
-
-    public void removerLivro(String codigo, Lojas loja){
-        loja.removerLivro(codigo);
     }
 
 }

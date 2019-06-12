@@ -49,12 +49,17 @@ public class CadastroLojas {
     }
 
     public void inserirLivro(Livros livro, Lojas loja) {
-        rep.inserirLivro(livro, loja);
+        loja.inserirLivro(livro);
     }
 
     public void removerLivro(String codigo, Lojas loja) {
-        rep.removerLivro(codigo, loja);
+        loja.removerLivro(codigo);
     }
+
+    public boolean existeLivro(Livros livro, Lojas loja){
+        return loja.existeLivro(livro);
+    }
+
 
 }
 

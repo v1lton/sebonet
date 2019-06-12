@@ -94,7 +94,7 @@ public class Sebo {
         } else if (!this.existeLojas(loja.getId())) {
             throw new LojaNaoEncontradaException();
         } else {
-            if (loja.existeLivro(livro)) {
+            if (cadastroLojas.existeLivro(livro, loja)) {
                 if (pessoa.getCredito() >= livro.getPreco()) {
                    cadastroLojas.removerLivro(livro.getCodigo(), loja);
                     pessoa.retirarCredito(livro.getPreco());
