@@ -15,7 +15,7 @@ public class Sebo {
         this.cadastroLivros = cadastroLivros;
     }
 
-    public void cadastroPessoas(Pessoas pessoa) throws PessoaCadastradaException, LojaNaoEncontradaException {
+    public void cadastroPessoas(Pessoas pessoa) throws PessoaJaCadastradaException, LojaNaoEncontradaException {
         if (pessoa instanceof Funcionarios) {
             if (cadastroLojas.existe(((Funcionarios) pessoa).getLoja())) {
                 this.cadastroPessoas.cadastrar(pessoa);
@@ -84,6 +84,29 @@ public class Sebo {
 
     public Livros procurarLivros(String codigo) throws LivroNaoEncontradoException {
         return  this.cadastroLivros.procurar(codigo);
+    }
+
+    public void venderLivros(Livros livro, Pessoas pessoa, Lojas loja) throws PessoaNaoEncontradaException, LivroNaoEncontradoException, LojaNaoEncontradaException, SaldoInsuficienteException {
+        if (!this.existePessoas(pessoa.getCPF())) {
+            throw new PessoaNaoEncontradaException();
+        } else if (!this.existeLivros(livro.getCodigo())) {
+            throw new LivroNaoEncontradoException();
+        } else if (!this.existeLojas(loja.getId())) {
+            throw new LojaNaoEncontradaException();
+        } else {
+            if (loja.existeLivro()) {
+                if (pessoa.getCredito() >= livro.getPreco()) {
+                    loja.removerLivro(livro);
+                    pessoa.retirarCredito(livro.getPreco());
+                    this.atualizarLojas(loja);
+                    this.atualizarPessoas(pessoa);
+                } else {
+                    throw new SaldoInsuficienteException();
+                }
+            } else {
+                throw new LivroNaoEncontradoException();
+            }
+        }
     }
 
 }
