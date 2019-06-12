@@ -97,7 +97,7 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         while (status && i < pessoas.length) {
             if (this.pessoas[i] == null) {
                 status = false;
-            } else if (this.pessoas[i].getNome().equals(CPF)) {
+            } else if (this.pessoas[i].getCPF().equals(CPF)) {
                 aux = true;
                 status = false;
             } else {

@@ -18,7 +18,7 @@ public class RepositorioLivroArray implements RepositorioLivros {
        if(existe(livro.getCodigo())) {
            throw new LivroJaCadastradoException();
        }
-           else if (this.posicao < 150) {
+           else if (this.posicao < ListaLivros.length) {
                this.ListaLivros[this.posicao] = livro;
                this.posicao = this.posicao + 1;
            } else {
@@ -29,7 +29,7 @@ public class RepositorioLivroArray implements RepositorioLivros {
 
     public void remover(String codigo)throws LivroNaoEncontradoException {
         if (existe(codigo)) {
-            for (int i = 0; i < 150; i++) {
+            for (int i = 0; i < ListaLivros.length; i++) {
                 if (codigo.equals(this.ListaLivros[i].getCodigo())) {
                     this.ListaLivros[i] = null;
                     this.posicao = this.posicao - 1;
@@ -42,7 +42,7 @@ public class RepositorioLivroArray implements RepositorioLivros {
 
     public void atualizar(Livros livro)throws LivroNaoEncontradoException {
         if (existe(livro.getCodigo()) ) {
-            for (int i = 0; i < 150; i++) {
+            for (int i = 0; i < ListaLivros.length; i++) {
                 if (this.ListaLivros[i]==livro) {
                     this.ListaLivros[i] = livro;
                 }
@@ -53,7 +53,7 @@ public class RepositorioLivroArray implements RepositorioLivros {
     }
 
     public boolean existe(String codigo) {
-        for (int i = 0; i < 150; i++) {
+        for (int i = 0; i < ListaLivros.length; i++) {
             if ( ListaLivros[i]!= null && codigo.equals(ListaLivros[i].getCodigo())) {
                 return true;
             }
@@ -63,7 +63,7 @@ public class RepositorioLivroArray implements RepositorioLivros {
 
     public Livros procurar(String codigo) throws LivroNaoEncontradoException{
 
-        for (int i = 0; i < 150; i++) {
+        for (int i = 0; i < ListaLivros.length; i++) {
             if (this.ListaLivros[i].getCodigo().equals(codigo)) {
                 return ListaLivros[i];
 
