@@ -10,17 +10,26 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
     private int indice;
 
     public RepositorioLojasArray(){
-        this.lojas = new Lojas[50];
+        this.lojas = new Lojas[10];
         this.indice = 0;
     }
 
-   public void inserir(Lojas loja) throws LimiteLojaException {
+    public void inserir(Lojas loja) throws LimiteLojaException {
         if(this.indice < this.lojas.length){
             lojas[this.indice] = loja;
-            this.indice++;
         }else{
-            throw new LimiteLojaException();
+            Lojas[] aux = new Lojas[this.lojas.length+1];
+            for(int i = 0; i < aux.length; i++){
+                if(i < aux.length-1){
+                    aux[i] = this.lojas[i];
+                }
+                else{
+                    aux[this.indice] =  loja;
+                }
+            }
+            this.lojas = aux;
         }
+        this.indice++;
     }
 
     public void remover(int id) throws LojaNaoEncontradaException{
@@ -67,7 +76,7 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
                 return true;
             }
         }
-       return false;
+        return false;
     }
 
     public Lojas procurar (int id) throws LojaNaoEncontradaException{
@@ -86,8 +95,10 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
         loja.inserirLivro(livro);
     }
 
-    public void removerLivro(Livros livro, Lojas loja){
-        loja.removerLivro(livro);
+    public void removerLivro(String codigo, Lojas loja){
+        loja.removerLivro(codigo);
     }
 
 }
+
+

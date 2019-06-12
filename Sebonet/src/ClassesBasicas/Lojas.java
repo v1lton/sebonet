@@ -38,9 +38,14 @@ public class Lojas {
         this.livros.inserir(livro);
     }
 
-    public void removerLivro(Livros livro){
-        this.livros.remover(livro.getCodigo());
+    public void removerLivro(String codigo){
+        this.livros.remover(codigo);
     }
+
+    public boolean existeLivro(Livros livro){
+        return this.livros.existeLivro(livro);
+    }
+
 }
 
 class listaLivros{
@@ -68,6 +73,16 @@ class listaLivros{
             this.proximo = this.proximo.proximo;
         }else {
             this.proximo.remover(codigo);
+        }
+    }
+
+    public boolean existeLivro(Livros livro){
+        if(this.livro == null){
+            return false;
+        }else if(this.livro == livro){
+            return true;
+        }else{
+            return this.proximo.existeLivro(livro);
         }
     }
 }

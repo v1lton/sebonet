@@ -20,5 +20,5 @@ public interface RepositorioLojas {
 
     void  inserirLivro(Livros livro, Lojas loja);
 
-    void removerLivro(Livros livro, Lojas loja);
+    void removerLivro(String codigo, Lojas loja);
 }

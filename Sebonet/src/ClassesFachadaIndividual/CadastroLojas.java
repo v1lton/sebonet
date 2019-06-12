@@ -52,7 +52,10 @@ public class CadastroLojas {
         rep.inserirLivro(livro, loja);
     }
 
-    public void removerLivro(Livros livro, Lojas loja) {
-        rep.removerLivro(livro, loja);
+    public void removerLivro(String codigo, Lojas loja) {
+        rep.removerLivro(codigo, loja);
     }
+
 }
+
+

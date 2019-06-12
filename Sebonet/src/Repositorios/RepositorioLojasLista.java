@@ -1,3 +1,6 @@
+
+
+
 package Repositorios;
 import ClassesBasicas.Livros;
 import ClassesBasicas.Lojas;
@@ -65,8 +68,10 @@ public class RepositorioLojasLista implements RepositorioLojas {
         loja.inserirLivro(livro);
     }
 
-    public void removerLivro(Livros livro, Lojas loja){
-        loja.removerLivro(livro);
+    public void removerLivro(String codigo, Lojas loja){
+        loja.removerLivro(codigo);
     }
 
 }
+
+
