@@ -27,7 +27,7 @@ public class Sebo {
         }
     }
 
-    public void cadastroLojas(Lojas loja) throws LojaJaCadastradaException, LimiteLojaException {
+    public void cadastroLojas(Lojas loja) throws LojaJaCadastradaException {
         this.cadastroLojas.cadastrar(loja);
     }
 
@@ -113,8 +113,15 @@ public class Sebo {
         loja.inserirLivro(livro);
     }
 
-    public void removerLivro(String codigo, Lojas loja) {
-        loja.removerLivro(codigo);
+    public void removerLivro(String codigo, Lojas loja) throws LivroNaoEncontradoException, LojaNaoEncontradaException {
+        if(!this.existeLojas(loja.getId())){
+            throw new LojaNaoEncontradaException();
+        }else if(!this.existeLivro(this.procurarLivros(codigo), loja)){
+            throw new LivroNaoEncontradoException();
+        }
+        else{
+            loja.removerLivro(codigo);
+        }
     }
 
     public boolean existeLivro(Livros livro, Lojas loja){

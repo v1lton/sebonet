@@ -1,11 +1,9 @@
 package ClassesFachadaIndividual;
 
-import ClassesBasicas.Livros;
-import Excecoes.LimiteLojaException;
 import Excecoes.LojaJaCadastradaException;
 import Excecoes.LojaNaoEncontradaException;
 import Repositorios.RepositorioLojas;
-import ClassesBasicas.Lojas;
+import ClassesBasicas.*;
 
 
 public class CadastroLojas {
@@ -16,7 +14,7 @@ public class CadastroLojas {
         this.rep = _rep;
     }
 
-    public void cadastrar(Lojas loja) throws LimiteLojaException, LojaJaCadastradaException {
+    public void cadastrar(Lojas loja) throws  LojaJaCadastradaException {
         if (!this.existe(loja.getId())) {
             rep.inserir(loja);
         } else {

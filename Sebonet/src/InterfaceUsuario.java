@@ -11,7 +11,7 @@ public class InterfaceUsuario {
     public static void main(String[] args)throws LivroNaoEncontradoException,LivroJaCadastradoException,InventarioCheioException{
         RepositorioPessoas repPessoas = new RepositorioPessoasArray(5);
         RepositorioLojas repLojas = new RepositorioLojasArray();
-        RepositorioLivros repLivros = new RepositorioLivroArray(2);
+        RepositorioLivros repLivros = new RepositorioLivroArray(20);
         CadastroPessoas crudPessoas = new CadastroPessoas(repPessoas);
         CadastroLojas crudLojas = new CadastroLojas(repLojas);
         CadastroLivros crudLivros = new CadastroLivros(repLivros);
@@ -68,10 +68,33 @@ public class InterfaceUsuario {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-
-
-
+        try{
+            Lojas loja03 = new Lojas(03, "Olinda");
+            sebo.cadastroLojas(loja03);
+            sebo.cadastroLojas(loja03);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            sebo.removerLojas(03);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            Livros livro03 = new Livros("Manifesto Comunista", 45, "Karl Marx", "03", "viver");
+            Livros livro04 = new Livros("Harry Potter e o cálice de fogo", 45, "J. k. Rowling", "04", "viver");
+            sebo.cadastroLivros(livro03);
+            sebo.cadastroLivros(livro04);
+            sebo.inserirLivro(livro03, sebo.procurarLojas(2));
+            sebo.inserirLivro(livro04, sebo.procurarLojas(2));
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            sebo.removerLivro("03", sebo.procurarLojas(2));
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
 }

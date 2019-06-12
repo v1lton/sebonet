@@ -1,8 +1,6 @@
 package Repositorios;
-import ClassesBasicas.Livros;
 import ClassesBasicas.Lojas;
 import Excecoes.LojaNaoEncontradaException;
-import Excecoes.LimiteLojaException;
 
 public interface RepositorioLojas {
 

@@ -1,9 +1,7 @@
 package Repositorios;
 
-import ClassesBasicas.Livros;
 import ClassesBasicas.Lojas;
 import Excecoes.LojaNaoEncontradaException;
-import Excecoes.LimiteLojaException;
 
 public class RepositorioLojasArray  implements  RepositorioLojas {
     private Lojas[] lojas;
