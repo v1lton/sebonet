@@ -8,11 +8,11 @@ import Repositorios.RepositorioLojas;
 import ClassesBasicas.Lojas;
 
 
-public class CrudLojas {
+public class CadastroLojas {
 
     private RepositorioLojas rep;
 
-    public CrudLojas(RepositorioLojas _rep) {
+    public CadastroLojas(RepositorioLojas _rep) {
         this.rep = _rep;
     }
 

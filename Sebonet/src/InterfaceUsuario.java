@@ -12,7 +12,7 @@ public class InterfaceUsuario {
         RepositorioLivros repLivros = new RepositorioLivroArray(2);
         CadastroPessoas crudPessoas = new CadastroPessoas(repPessoas);
         CrudLojas crudLojas = new CrudLojas(repLojas);
-        CadastroLivros crudLivros = new CadastroLivros(repLivros);
+        CadastroLivro crudLivros = new CadastroLivro(repLivros);
         Sebo sebo = new Sebo(crudPessoas, crudLojas, crudLivros);
         TesteLivro.main();
         try {

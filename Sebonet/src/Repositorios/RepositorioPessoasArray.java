@@ -1,6 +1,5 @@
 package Repositorios;
 import ClassesBasicas.Pessoas;
-import Excecoes.LimitePessoasException;
 import Excecoes.PessoaNaoEncontradaException;
 
 public class RepositorioPessoasArray implements RepositorioPessoas{
@@ -16,7 +15,7 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
             this.pessoas[this.indice] = pessoa;
             this.indice++;
         } else {
-            Pessoas aux[] = new Pessoas[2 * pessoas.length];
+            Pessoas[] aux = new Pessoas[2 * pessoas.length];
             for (int i =0; i < pessoas.length; i++) {
                 aux[i] = pessoas[i];
             }
@@ -90,7 +89,6 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         int i = 0;
         while (status && i < pessoas.length) {
             if (this.pessoas[i] == null) {
-                aux = false;
                 status = false;
             } else if (this.pessoas[i].getNome().equals(CPF)) {
                 aux = true;

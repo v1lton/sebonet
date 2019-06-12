@@ -7,7 +7,7 @@ import Repositorios.*;
 
 
 public class TestePessoas {
-    public static void main () throws CargoNaoExistenteException, LimitePessoasException, PessoaNaoEncontradaException, SaldoInsuficienteException {
+    public static void main () throws CargoNaoExistenteException, PessoaNaoEncontradaException, SaldoInsuficienteException {
         RepositorioPessoas rep = new RepositorioPessoasArray(2);
         CadastroPessoas cadastro = new CadastroPessoas(rep);
         try {
