@@ -61,6 +61,7 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
                         }
                     }
                     status = false;
+                    this.indice--;
                 } else {
                     i++;
                 }
