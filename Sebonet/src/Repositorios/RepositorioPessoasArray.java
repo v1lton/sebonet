@@ -25,63 +25,70 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
     }
 
     public void atualizar(Pessoas pessoa) throws PessoaNaoEncontradaException {
-        boolean status = true;
-        int i = 0;
-        while (status && i < pessoas.length) {
-            if (this.pessoas[i] == null) {
-                throw new PessoaNaoEncontradaException();
-            } else if (this.pessoas[i].getNome().equals(pessoa.getNome())) {
-                this.pessoas[i] = pessoa;
-                status = false;
-            } else {
-                i++;
+        if (this.existe(pessoa.getCPF())) {
+            boolean status = true;
+            int i = 0;
+            while(status && i < pessoas.length) {
+                if (this.pessoas[i].getCPF().equals(pessoa.getCPF())) {
+                    this.pessoas[i] = pessoa;
+                    status = false;
+                } else {
+                    i++;
+                }
             }
+        } else {
+            throw new PessoaNaoEncontradaException();
         }
     }
 
     public void remover(String CPF) throws PessoaNaoEncontradaException {
-        boolean status = true;
-        int i = 0;
-        while (status && i < pessoas.length) {
-            if (this.pessoas[i] == null) {
-                throw new PessoaNaoEncontradaException();
-            } else if (this.pessoas[i].getCPF().equals(CPF)) {
-                if (this.pessoas[i + 1] == null) {
-                    this.pessoas[i] = null;
-                } else {
-                    boolean aux = true;
-                    while (aux) {
-                        if (this.pessoas[i + 1] != null && i < pessoas.length) {
-                            this.pessoas[i] = this.pessoas[i+1];
-                            i++;
-                        } else {
-                            aux = false;
+        if (this.existe(CPF)) {
+            boolean status = true;
+            int i = 0;
+            while (status && i < pessoas.length) {
+                if (this.pessoas[i].getCPF().equals(CPF)) {
+                    if (this.pessoas[i+1] == null) {
+                        this.pessoas[i] = null;
+                    } else {
+                        boolean aux = true;
+                        while (aux) {
+                            if (this.pessoas[i + 1] != null && i < pessoas.length) {
+                                this.pessoas[i] = this.pessoas[i+1];
+                                i++;
+                            } else {
+                                aux = false;
+                            }
                         }
                     }
+                    status = false;
+                } else {
+                    i++;
                 }
-                status = false;
-            } else {
-                i++;
             }
+        } else {
+            throw new PessoaNaoEncontradaException();
         }
     }
 
     public Pessoas procurar(String CPF) throws PessoaNaoEncontradaException {
-        boolean status = true;
-        int i = 0;
-        Pessoas aux = null;
-        while (status && i < pessoas.length) {
-            if (this.pessoas[i] == null) {
-                throw new PessoaNaoEncontradaException();
-            } else if (this.pessoas[i].getCPF().equals(CPF)) {
-                aux = this.pessoas[i];
-                status = false;
-            } else {
-                i++;
+        if (this.existe(CPF)) {
+            boolean status = true;
+            int i = 0;
+            Pessoas aux = null;
+            while (status && i < pessoas.length) {
+                if (this.pessoas[i].getCPF().equals(CPF)) {
+                    aux = this.pessoas[i];
+                    status = false;
+                } else {
+                    i++;
+                }
             }
+            return aux;
+        } else {
+            throw new PessoaNaoEncontradaException();
         }
-        return aux;
     }
+
 
     public boolean existe(String CPF) {
         boolean status = true;
