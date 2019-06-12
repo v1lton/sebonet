@@ -11,7 +11,7 @@ public class InterfaceUsuario {
     public static void main(String[] args)throws LivroNaoEncontradoException,LivroJaCadastradoException,InventarioCheioException{
         RepositorioPessoas repPessoas = new RepositorioPessoasArray(5);
         RepositorioLojas repLojas = new RepositorioLojasArray();
-        RepositorioLivros repLivros = new RepositorioLivroArray(2);
+        RepositorioLivros repLivros = new RepositorioLivroArray(4);
         CadastroPessoas crudPessoas = new CadastroPessoas(repPessoas);
         CadastroLojas crudLojas = new CadastroLojas(repLojas);
         CadastroLivros crudLivros = new CadastroLivros(repLivros);
@@ -65,6 +65,14 @@ public class InterfaceUsuario {
             sebo.cadastroLojas(loja02);;
             sebo.inserirLivro(livro02, loja02);
             sebo.venderLivros(livro02, cli02, loja02);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            Livros livro03 = new Livros("Dom Casmurro", 29.9, "Machado de Assis", "03", "Saraiva");
+            sebo.cadastroLivros(livro03);
+            livro03.setEditora("Record");
+            sebo.atualizarLivros(livro03);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
