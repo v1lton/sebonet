@@ -68,7 +68,6 @@ public class RepositorioLojasArray  implements  RepositorioLojas {
     }
 
     public boolean existe (int id){
-
         for(int i = 0; i < this.lojas.length; i++){
             if(this.lojas[i] != null && this.lojas[i].getId() == id){
                 return true;

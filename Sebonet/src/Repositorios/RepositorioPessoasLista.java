@@ -50,14 +50,12 @@ public class RepositorioPessoasLista implements RepositorioPessoas {
     }
 
     public boolean existe(String CPF) {
-        boolean aux = false;
         if (this.pessoa == null) {
             return false;
         } else if (this.pessoa.getCPF().equals(CPF)) {
-            aux = true;
+            return true;
         } else {
-            this.proximo.existe(CPF);
+            return this.proximo.existe(CPF);
         }
-        return aux;
     }
 }

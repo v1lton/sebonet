@@ -9,7 +9,7 @@ import java.security.spec.ECField;
 public class InterfaceUsuario {
 
     public static void main(String[] args)throws LivroNaoEncontradoException,LivroJaCadastradoException,InventarioCheioException{
-        RepositorioPessoas repPessoas = new RepositorioPessoasArray(2);
+        RepositorioPessoas repPessoas = new RepositorioPessoasLista();
         RepositorioLojas repLojas = new RepositorioLojasArray();
         RepositorioLivros repLivros = new RepositorioLivroArray(20);
         //RepositorioLivros repLivros = new RepositorioLivroArray(4);
@@ -31,7 +31,8 @@ public class InterfaceUsuario {
         }
         try {
             sebo.cadastroPessoas(new Funcionarios("Artur", "2212212213", "888885", "edurom@gmail.com", 100, "Vendedor", 01));
-            sebo.cadastroPessoas(new Funcionarios("Artur", "2212212213", "888885", "edurom@gmail.com", 100, "Vendedor", 01));
+            Pessoas a = new Funcionarios("Artur", "2212212213", "888885", "edurom@gmail.com", 100, "Vendedor", 01);
+            sebo.cadastroPessoas(a);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
