@@ -80,19 +80,16 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
 
 
     public boolean existe(String CPF) {
-        boolean status = true;
-        boolean aux = false;
         int i = 0;
-        while (status && i < pessoas.length) {
+        while (i < pessoas.length) {
             if (this.pessoas[i] == null) {
-                status = false;
+                return false;
             } else if (this.pessoas[i].getCPF().equals(CPF)) {
-                aux = true;
-                status = false;
+                return true;
             } else {
                 i++;
             }
         }
-        return aux;
+        return false;
     }
 }
