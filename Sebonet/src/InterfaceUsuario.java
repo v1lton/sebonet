@@ -9,7 +9,7 @@ import java.security.spec.ECField;
 public class InterfaceUsuario {
 
     public static void main(String[] args)throws LivroNaoEncontradoException,LivroJaCadastradoException,InventarioCheioException{
-        RepositorioPessoas repPessoas = new RepositorioPessoasArray(5);
+        RepositorioPessoas repPessoas = new RepositorioPessoasArray(2);
         RepositorioLojas repLojas = new RepositorioLojasArray();
         RepositorioLivros repLivros = new RepositorioLivroArray(20);
         //RepositorioLivros repLivros = new RepositorioLivroArray(4);

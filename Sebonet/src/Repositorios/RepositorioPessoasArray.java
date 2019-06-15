@@ -41,35 +41,32 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         }
     }
 
-    public void remover(String CPF) throws PessoaNaoEncontradaException {
-        if (this.existe(CPF)) {
-            boolean status = true;
-            int i = 0;
-            while (status && i < pessoas.length) {
-                if (this.pessoas[i].getCPF().equals(CPF)) {
-                    if (this.pessoas[i+1] == null) {
-                        this.pessoas[i] = null;
-                    } else {
-                        boolean aux = true;
-                        while (aux) {
-                            if (this.pessoas[i + 1] != null && i < pessoas.length) {
-                                this.pessoas[i] = this.pessoas[i+1];
-                                i++;
-                            } else {
-                                aux = false;
-                            }
+    public void remover(String CPF) {
+        boolean status = true;
+        int i = 0;
+        while (status && i < pessoas.length) {
+            if (this.pessoas[i].getCPF().equals(CPF)) {
+                if (this.indice == pessoas.length) {
+                    this.pessoas[i] = null;
+                } else {
+                    boolean aux = true;
+                    while (aux) {
+                        if (this.pessoas[i + 1] != null && i < pessoas.length) {
+                            this.pessoas[i] = this.pessoas[i+1];
+                            i++;
+                        } else {
+                            aux = false;
                         }
                     }
-                    status = false;
-                    this.indice--;
-                } else {
-                    i++;
                 }
+                status = false;
+                this.indice--;
+            } else {
+                i++;
             }
-        } else {
-            throw new PessoaNaoEncontradaException();
         }
     }
+
 
     public Pessoas procurar(String CPF) throws PessoaNaoEncontradaException {
         if (this.existe(CPF)) {

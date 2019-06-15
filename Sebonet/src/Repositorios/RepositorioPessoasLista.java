@@ -30,10 +30,8 @@ public class RepositorioPessoasLista implements RepositorioPessoas {
         }
     }
 
-    public void remover(String CPF) throws PessoaNaoEncontradaException { // Criar a exceção
-        if (this.pessoa == null) {
-            throw new PessoaNaoEncontradaException();
-        } else if (this.pessoa.getCPF().equals(CPF)) {
+    public void remover(String CPF){
+       if (this.pessoa.getCPF().equals(CPF)) {
             this.pessoa = this.proximo.pessoa;
             this.proximo = this.proximo.proximo;
         } else {
