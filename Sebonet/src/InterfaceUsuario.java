@@ -63,7 +63,7 @@ public class InterfaceUsuario {
             Pessoas cli02 = new Clientes("Paulo", "009741455", "81996544214", "plm@cin.ufpe.br", 120);
             sebo.cadastroPessoas(cli02);
             Lojas loja02 = new Lojas(02, "Recife");
-            sebo.cadastroLojas(loja02);;
+            sebo.cadastroLojas(loja02);
             sebo.inserirLivro(livro02, loja02);
             sebo.venderLivros(livro02, cli02, loja02);
         } catch (Exception e) {
@@ -101,6 +101,19 @@ public class InterfaceUsuario {
             sebo.cadastroLivros(livro03);
             livro03.setEditora("Record");
             sebo.atualizarLivros(livro03);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            sebo.cadastroPessoas(new Funcionarios("Carla", "02712533478", "996539645", "kp@gmail.com", 20, "Gerente", 01));
+            Pessoas Carla = sebo.procurarPessoas("02712533478");
+            System.out.println(Carla.getCPF());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            sebo.cadastroPessoas(new Clientes("Vovó Juju", "0257859612", "13131313", "abacateebom@gmail.com", 60));
+            sebo.procurarPessoas("025785921");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
