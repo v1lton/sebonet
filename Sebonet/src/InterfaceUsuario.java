@@ -8,7 +8,7 @@ import java.security.spec.ECField;
 
 public class InterfaceUsuario {
 
-    public static void main(String[] args)throws LivroNaoEncontradoException,LivroJaCadastradoException,InventarioCheioException{
+    public static void main(String[] args) {
         RepositorioPessoas repPessoas = new RepositorioPessoasLista();
         RepositorioLojas repLojas = new RepositorioLojasArray();
         RepositorioLivros repLivros = new RepositorioLivroArray(20);
@@ -17,6 +17,7 @@ public class InterfaceUsuario {
         CadastroLojas crudLojas = new CadastroLojas(repLojas);
         CadastroLivros crudLivros = new CadastroLivros(repLivros);
         Sebo sebo = new Sebo(crudPessoas, crudLojas, crudLivros);
+
         try {
             Lojas loja01 = new Lojas(01, "Recife");
             sebo.cadastroLojas(loja01);
@@ -80,6 +81,13 @@ public class InterfaceUsuario {
         try{
             sebo.removerLojas(03);
         }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        try {
+            Pessoas Joel = new Funcionarios("Joel", "1181189456", "99561720", "Joel@cin.ufpe.br", 10, "Bailarino", 01);
+            sebo.cadastroPessoas(Joel);
+        }
+        catch (Exception e) {
             System.out.println(e.getMessage());
         }
         try{
