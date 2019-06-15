@@ -63,24 +63,19 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         }
     }
 
-
-    public Pessoas procurar(String CPF) throws PessoaNaoEncontradaException {
-        if (this.existe(CPF)) {
-            boolean status = true;
-            int i = 0;
-            Pessoas aux = null;
-            while (status && i < pessoas.length) {
-                if (this.pessoas[i].getCPF().equals(CPF)) {
-                    aux = this.pessoas[i];
-                    status = false;
-                } else {
-                    i++;
-                }
+    public Pessoas procurar(String CPF) {
+        boolean status = true;
+        int i = 0;
+        Pessoas aux = null;
+        while (status && i < pessoas.length) {
+            if (this.pessoas[i].getCPF().equals(CPF)) {
+                aux = this.pessoas[i];
+                status = false;
+            } else {
+                i++;
             }
-            return aux;
-        } else {
-            throw new PessoaNaoEncontradaException();
         }
+        return aux;
     }
 
 
