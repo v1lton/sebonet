@@ -64,18 +64,15 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
     }
 
     public Pessoas procurar(String CPF) {
-        boolean status = true;
         int i = 0;
-        Pessoas aux = null;
-        while (status && i < pessoas.length) {
+        while (i < pessoas.length) {
             if (this.pessoas[i].getCPF().equals(CPF)) {
-                aux = this.pessoas[i];
-                status = false;
+                return this.pessoas[i];
             } else {
                 i++;
             }
         }
-        return aux;
+        return null;
     }
 
 
