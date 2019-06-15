@@ -24,20 +24,16 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
         }
     }
 
-    public void atualizar(Pessoas pessoa) throws PessoaNaoEncontradaException {
-        if (this.existe(pessoa.getCPF())) {
-            boolean status = true;
-            int i = 0;
-            while(status && i < pessoas.length) {
-                if (this.pessoas[i].getCPF().equals(pessoa.getCPF())) {
-                    this.pessoas[i] = pessoa;
-                    status = false;
-                } else {
-                    i++;
-                }
+    public void atualizar(Pessoas pessoa) {
+        boolean status = true;
+        int i = 0;
+        while(status && i < pessoas.length) {
+            if (this.pessoas[i].getCPF().equals(pessoa.getCPF())) {
+                this.pessoas[i] = pessoa;
+                status = false;
+            } else {
+                i++;
             }
-        } else {
-            throw new PessoaNaoEncontradaException();
         }
     }
 
@@ -51,7 +47,7 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
                 } else {
                     boolean aux = true;
                     while (aux) {
-                        if (this.pessoas[i + 1] != null && i < pessoas.length) {
+                        if (this.pessoas[i + 1] != null) {
                             this.pessoas[i] = this.pessoas[i+1];
                             i++;
                         } else {
