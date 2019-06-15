@@ -25,12 +25,11 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
     }
 
     public void atualizar(Pessoas pessoa) {
-        boolean status = true;
         int i = 0;
-        while(status && i < pessoas.length) {
+        while(i < pessoas.length) {
             if (this.pessoas[i].getCPF().equals(pessoa.getCPF())) {
                 this.pessoas[i] = pessoa;
-                status = false;
+                i = pessoas.length;
             } else {
                 i++;
             }
