@@ -95,16 +95,25 @@ public class Sebo {
             throw new LojaNaoEncontradaException();
         } else {
             if (this.existeLivro(livro, loja)) {
-                if (pessoa.getCredito() >= livro.getPreco()) {
-                   this.removerLivro(livro.getCodigo(), loja);
-                    pessoa.retirarCredito(livro.getPreco());
-                    this.atualizarLojas(loja);
-                    this.atualizarPessoas(pessoa);
+                if (pessoa instanceof  Funcionarios){
+                    if (pessoa.getCredito() >= (livro.getPreco()*0.8)) {
+                        this.removerLivro(livro.getCodigo(), loja);
+                        pessoa.retirarCredito(livro.getPreco());
+                        this.atualizarLojas(loja);
+                        this.atualizarPessoas(pessoa);
+                    } else {
+                        throw new SaldoInsuficienteException();
+                    }
                 } else {
-                    throw new SaldoInsuficienteException();
+                    if (pessoa.getCredito() >= (livro.getPreco())) {
+                        this.removerLivro(livro.getCodigo(), loja);
+                        pessoa.retirarCredito(livro.getPreco());
+                        this.atualizarLojas(loja);
+                        this.atualizarPessoas(pessoa);
+                    } else {
+                        throw new SaldoInsuficienteException();
+                    }
                 }
-            } else {
-                throw new LivroNaoEncontradoException();
             }
         }
     }

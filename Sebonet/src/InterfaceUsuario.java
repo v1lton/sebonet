@@ -9,9 +9,9 @@ import java.security.spec.ECField;
 public class InterfaceUsuario {
 
     public static void main(String[] args) {
-        RepositorioPessoas repPessoas = new RepositorioPessoasLista();
+        RepositorioPessoas repPessoas = new RepositorioPessoasArray(2);
         RepositorioLojas repLojas = new RepositorioLojasArray();
-        RepositorioLivros repLivros = new RepositorioLivroArray(20);
+        RepositorioLivros repLivros = new RepositorioLivroArray(10);
         //RepositorioLivros repLivros = new RepositorioLivroArray(4);
         CadastroPessoas crudPessoas = new CadastroPessoas(repPessoas);
         CadastroLojas crudLojas = new CadastroLojas(repLojas);
@@ -101,7 +101,8 @@ public class InterfaceUsuario {
             System.out.println(e.getMessage());
         }
         try{
-            sebo.removerLivro("03", sebo.procurarLojas(2));
+           sebo.removerLivro("03", sebo.procurarLojas(2));
+            sebo.removerLivros("03");
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -123,6 +124,20 @@ public class InterfaceUsuario {
         try {
             sebo.cadastroPessoas(new Clientes("Vovó Juju", "0257859612", "13131313", "abacateebom@gmail.com", 60));
             sebo.procurarPessoas("025785921");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            Livros livro04 = new Livros("Turma da Mônica", 100, "Mauricio de Souza", "06", "Desenho");
+            sebo.cadastroLivros(livro04);
+            Pessoas Roberto = new Funcionarios("Roberto", "123448494", "212544214", "robertinho@cin.ufpe.br", 90, "Vendedor", 01);
+            sebo.cadastroPessoas(Roberto);
+            Pessoas Jorel = new Clientes("Jorel", "07212345689","85612206","joreldobolado@gmail.com",90);
+            Lojas loja03 = new Lojas(03, "Olinda");
+            sebo.cadastroLojas(loja03);
+            sebo.inserirLivro(livro04, loja03);
+            sebo.venderLivros(livro04, Roberto, loja03);
+            sebo.venderLivros(livro04, Jorel, loja03);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
