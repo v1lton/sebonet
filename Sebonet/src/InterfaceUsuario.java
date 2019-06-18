@@ -89,7 +89,7 @@ public class InterfaceUsuario {
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-        }
+       }
         try{
             Livros livro03 = new Livros("Manifesto Comunista", 45, "Karl Marx", "03", "viver");
             Livros livro04 = new Livros("Harry Potter e o cálice de fogo", 45, "J. k. Rowling", "04", "viver");
@@ -134,6 +134,7 @@ public class InterfaceUsuario {
             sebo.cadastroPessoas(Roberto);
             Pessoas Jorel = new Clientes("Jorel", "07212345689","85612206","joreldobolado@gmail.com",90);
             Lojas loja03 = new Lojas(03, "Olinda");
+            sebo.cadastroPessoas(Jorel);
             sebo.cadastroLojas(loja03);
             sebo.inserirLivro(livro04, loja03);
             sebo.venderLivros(livro04, Roberto, loja03);

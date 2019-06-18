@@ -33,6 +33,16 @@ public class RepositorioLivroArray implements RepositorioLivros {
                 if (codigo.equals(this.ListaLivros[i].getCodigo())) {
                     this.ListaLivros[i] = null;
                     this.posicao = this.posicao - 1;
+                    i = ListaLivros.length;
+                }
+            }
+
+            //========  reorganização do array ======================
+
+            for(int i = 0; i < ListaLivros.length-1; i++){
+                if(this.ListaLivros[i] == null && this.ListaLivros[i+1] != null){
+                    this.ListaLivros[i] = this.ListaLivros[i+1];
+                    this.ListaLivros[i+1] = null;
                 }
             }
         } else {
