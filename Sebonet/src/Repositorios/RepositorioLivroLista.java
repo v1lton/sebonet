@@ -8,7 +8,7 @@ public class RepositorioLivroLista implements RepositorioLivros {
     private Livros livro;
     private RepositorioLivroLista proximo;
 
-    private RepositorioLivroLista() {
+    public RepositorioLivroLista() {
         this.livro = null;
         this.proximo = null;
     }

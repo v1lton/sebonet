@@ -12,7 +12,6 @@ public class InterfaceUsuario {
         RepositorioPessoas repPessoas = new RepositorioPessoasArray(2);
         RepositorioLojas repLojas = new RepositorioLojasArray();
         RepositorioLivros repLivros = new RepositorioLivroArray(10);
-        //RepositorioLivros repLivros = new RepositorioLivroArray(4);
         CadastroPessoas crudPessoas = new CadastroPessoas(repPessoas);
         CadastroLojas crudLojas = new CadastroLojas(repLojas);
         CadastroLivros crudLivros = new CadastroLivros(repLivros);
@@ -102,7 +101,7 @@ public class InterfaceUsuario {
         }
         try{
            sebo.removerLivro("03", sebo.procurarLojas(2));
-            sebo.removerLivros("03");
+           sebo.removerLivros("03");
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -138,6 +137,8 @@ public class InterfaceUsuario {
             sebo.cadastroLojas(loja03);
             sebo.inserirLivro(livro04, loja03);
             sebo.venderLivros(livro04, Roberto, loja03);
+            sebo.cadastroLivros(livro04);
+            sebo.inserirLivro(livro04, loja03);
             sebo.venderLivros(livro04, Jorel, loja03);
         } catch (Exception e) {
             System.out.println(e.getMessage());

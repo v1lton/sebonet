@@ -98,6 +98,7 @@ public class Sebo {
                 if (pessoa instanceof  Funcionarios){
                     if (pessoa.getCredito() >= (livro.getPreco()*0.8)) {
                         this.removerLivro(livro.getCodigo(), loja);
+                        this.removerLivros(livro.getCodigo());
                         pessoa.retirarCredito(livro.getPreco());
                         this.atualizarLojas(loja);
                         this.atualizarPessoas(pessoa);
@@ -107,6 +108,7 @@ public class Sebo {
                 } else {
                     if (pessoa.getCredito() >= (livro.getPreco())) {
                         this.removerLivro(livro.getCodigo(), loja);
+                        this.removerLivros(livro.getCodigo());
                         pessoa.retirarCredito(livro.getPreco());
                         this.atualizarLojas(loja);
                         this.atualizarPessoas(pessoa);
